@@ -15,10 +15,16 @@ public class DiningTable {
     private int seatCapacity;
 
 
+
+    public DiningTable() {
+
+    }
+
     public DiningTable(int tableNumber, int seatCapacity) {
         this.tableNumber = tableNumber;
         this.seatCapacity = seatCapacity;
     }
+
 
 
     public Long getId() {
@@ -46,7 +52,7 @@ public class DiningTable {
     public String toString() {
         return "DiningTable{" +
             "id=" + id +
-            ", tableNumber='" + tableNumber + '\'' +
+            ", tableNumber=" + tableNumber +
             ", seatCapacity=" + seatCapacity +
             '}';
     }
