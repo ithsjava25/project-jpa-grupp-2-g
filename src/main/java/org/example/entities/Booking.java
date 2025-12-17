@@ -26,7 +26,7 @@ public class Booking {
     @Column(name = "booking_end", nullable = false)
     private LocalDateTime bookingEnd;
 
-    // Krävs av JPA
+
     protected Booking() {
     }
 
@@ -88,7 +88,6 @@ public class Booking {
         this.bookingEnd = bookingEnd;
     }
 
-    // 🔹 toString (NYTT)
     @Override
     public String toString() {
         return "Booking{" +
