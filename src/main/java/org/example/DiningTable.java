@@ -3,25 +3,33 @@ package org.example;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Dining tables")
 public class DiningTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tableNumber;
+    @Column(name = "table_number", nullable = false)
+    private int tableNumber;
 
+    @Column(name = "capacity", nullable = false)
     private int seatCapacity;
+
+
+    public DiningTable(int tableNumber, int seatCapacity) {
+        this.tableNumber = tableNumber;
+        this.seatCapacity = seatCapacity;
+    }
+
 
     public Long getId() {
         return id;
     }
 
-    public String getTableNumber() {
+    public int getTableNumber() {
         return tableNumber;
     }
 
-    public void setTableNumber(String tableNumber) {
+    public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
     }
 
