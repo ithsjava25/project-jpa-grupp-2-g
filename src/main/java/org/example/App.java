@@ -8,6 +8,8 @@ import jakarta.persistence.PersistenceConfiguration;
 import org.example.entities.*;
 import org.hibernate.jpa.HibernatePersistenceConfiguration;
 
+import java.awt.print.Book;
+
 public class App {
     public static void main(String[] args) {
 
@@ -25,6 +27,12 @@ public class App {
             emf.runInTransaction( em->{
                 DiningTable table = new DiningTable();
                 em.persist(table);
+                Customer customer = new Customer("Harry", "Potter", "078294832748", "hp@hogwarts.se");
+                em.persist(customer);
+                Restaurant res = new Restaurant();
+                em.persist(res);
+                OpeningHours o = new OpeningHours();
+                em.persist(o);
             });
         }
 
