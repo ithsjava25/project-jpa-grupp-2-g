@@ -11,6 +11,7 @@
             <property name="jakarta.persistence.jdbc.user" value="grupp2"/>
             <property name="jakarta.persistence.jdbc.password" value="${env.PASSWORD}"/>
             <!-- Automatically export the schema -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <!-- Echo all executed SQL to console -->
