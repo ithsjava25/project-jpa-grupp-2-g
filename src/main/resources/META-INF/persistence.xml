@@ -4,14 +4,17 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd">
     <persistence-unit name="jpa-hibernate-mysql">
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <class>org.example.entities.Booking</class>
+        <class>org.example.entities.Customer</class>
+        <class>org.example.entities.DiningTable</class>
+        <class>org.example.entities.OpeningHours</class>
+        <class>org.example.entities.Restaurant</class>
         <properties>
             <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/app_db"/>
             <property name="jakarta.persistence.jdbc.user" value="grupp2"/>
-            <property name="jakarta.persistence.jdbc.password" value="${env.PASSWORD}"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
             <!-- Automatically export the schema -->
-            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <!-- Echo all executed SQL to console -->

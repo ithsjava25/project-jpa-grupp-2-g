@@ -11,11 +11,12 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     @Column(name = "restaurant_id", nullable = false)
     private Long restaurantId;
-
-    @Column(name = "customer_id", nullable = false)
-    private Long customerId;
 
     @Column(name = "table_id", nullable = false)
     private Long tableId;
@@ -31,12 +32,12 @@ public class Booking {
     }
 
     public Booking(Long restaurantId,
-                   Long customerId,
+                   Customer customer,
                    Long tableId,
                    LocalDateTime bookingStart,
                    LocalDateTime bookingEnd) {
         this.restaurantId = restaurantId;
-        this.customerId = customerId;
+        this.customer = customer;
         this.tableId = tableId;
         this.bookingStart = bookingStart;
         this.bookingEnd = bookingEnd;
@@ -51,10 +52,6 @@ public class Booking {
         return restaurantId;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
     public Long getTableId() {
         return tableId;
     }
@@ -67,13 +64,19 @@ public class Booking {
         return bookingEnd;
     }
 
-    // 🔹 Setters (NYTT)
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+
+    // 🔹 Setters (NYTT)
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public void setTableId(Long tableId) {
@@ -93,7 +96,6 @@ public class Booking {
         return "Booking{" +
             "id=" + id +
             ", restaurantId=" + restaurantId +
-            ", customerId=" + customerId +
             ", tableId=" + tableId +
             ", bookingStart=" + bookingStart +
             ", bookingEnd=" + bookingEnd +
