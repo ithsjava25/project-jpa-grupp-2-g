@@ -1,4 +1,4 @@
-package se.restaurantbooking.entity;
+package org.example.entities;
 
 import jakarta.persistence.*;
 
