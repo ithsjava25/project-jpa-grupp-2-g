@@ -1,4 +1,4 @@
-package backend.entities;
+package se.restaurantbooking.entity;
 
 import jakarta.persistence.*;
 
@@ -12,20 +12,13 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String email;
-
-    public Customer() {
-    }
-
-    public Customer(String firstName, String lastName, String phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
 
     public Long getCustomerId() {
         return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -52,14 +45,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
@@ -67,7 +52,6 @@ public class Customer {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
