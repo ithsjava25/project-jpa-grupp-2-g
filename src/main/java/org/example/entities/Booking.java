@@ -2,9 +2,10 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "booking")
 public class Booking {
 
     @Id
@@ -14,6 +15,14 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @ManyToMany
+    @JoinTable(
+        name = "booking_table",
+        joinColumns = @JoinColumn(name = "booking_id"),
+        inverseJoinColumns = @JoinColumn(name = "table_id")
+    )
+    private Set<DiningTable> tables = new HashSet<DiningTable>();
 
     @Column(name = "restaurant_id", nullable = false)
     private Long restaurantId;
@@ -28,7 +37,7 @@ public class Booking {
     private LocalDateTime bookingEnd;
 
 
-    protected Booking() {
+    public Booking() {
     }
 
     public Booking(Long restaurantId,
@@ -68,8 +77,16 @@ public class Booking {
         return customer;
     }
 
+    public Set<DiningTable> getTables() {
+        return tables;
+    }
+
 
     // 🔹 Setters (NYTT)
+
+    public void setTables(Set<DiningTable> tables) {
+        this.tables = tables;
+    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -95,6 +112,7 @@ public class Booking {
     public String toString() {
         return "Booking{" +
             "id=" + id +
+            "custumor=" + customer.getFirstName() + " " + customer.getLastName() +
             ", restaurantId=" + restaurantId +
             ", tableId=" + tableId +
             ", bookingStart=" + bookingStart +
