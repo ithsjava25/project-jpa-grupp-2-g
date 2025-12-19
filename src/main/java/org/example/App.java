@@ -24,14 +24,7 @@ public class App {
 
         try(EntityManagerFactory emf = cfg.createEntityManagerFactory()){
             emf.runInTransaction( em->{
-                DiningTable table = new DiningTable();
-                em.persist(table);
-                Customer customer = new Customer("Harry", "Potter", "078294832748", "hp@hogwarts.se");
-                em.persist(customer);
-                Restaurant res = new Restaurant();
-                em.persist(res);
-                OpeningHours o = new OpeningHours();
-                em.persist(o);
+                //Todo: create entities
             });
         }
 
