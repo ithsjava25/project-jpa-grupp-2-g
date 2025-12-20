@@ -17,10 +17,12 @@ public class Restaurant {
     @JoinColumn(name = "openingHoursId")
     private List<OpeningHours> openingHours = new ArrayList<>();
 
+    @Column(name = "price_range")
+    private BigDecimal priceRange;
+
     private String name;
     private String category;
     private String address;
-    private BigDecimal priceRange;
     private double rating;
 
     public Restaurant(Long id, String name, String category, String address, BigDecimal priceRange, double rating) {

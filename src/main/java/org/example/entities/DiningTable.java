@@ -8,21 +8,24 @@ public class DiningTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
     @Column(name = "table_number", nullable = false)
     private int tableNumber;
 
     @Column(name = "capacity", nullable = false)
     private int seatCapacity;
 
-
-
     public DiningTable() {
 
     }
 
-    public DiningTable(int tableNumber, int seatCapacity) {
+    public DiningTable(int tableNumber, int seatCapacity, Restaurant restaurant) {
         this.tableNumber = tableNumber;
         this.seatCapacity = seatCapacity;
+        this.restaurant = restaurant;
     }
 
 
@@ -47,6 +50,13 @@ public class DiningTable {
         this.seatCapacity = seatCapacity;
     }
 
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
 
     @Override
     public String toString() {
@@ -54,6 +64,7 @@ public class DiningTable {
             "id=" + id +
             ", tableNumber=" + tableNumber +
             ", seatCapacity=" + seatCapacity +
+            ", restaurant=" + restaurant.getName() +
             '}';
     }
 }

@@ -14,7 +14,10 @@ public class OpeningHours {
     @Enumerated(EnumType.STRING)
     private Weekday weekday;
 
+    @Column(name = "opening_time")
     private LocalTime openingTime;
+
+    @Column(name = "closing_time")
     private LocalTime closingTime;
 
     public OpeningHours(Long id, Weekday weekday, LocalTime openingTime, LocalTime closingTime) {

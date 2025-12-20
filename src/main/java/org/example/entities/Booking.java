@@ -2,9 +2,10 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "booking")
 public class Booking {
 
     @Id
@@ -15,8 +16,17 @@ public class Booking {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @Column(name = "restaurant_id", nullable = false)
-    private Long restaurantId;
+    @ManyToMany
+    @JoinTable(
+        name = "booking_table",
+        joinColumns = @JoinColumn(name = "booking_id"),
+        inverseJoinColumns = @JoinColumn(name = "table_id")
+    )
+    private Set<DiningTable> tables = new HashSet<DiningTable>();
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
     @Column(name = "table_id", nullable = false)
     private Long tableId;
@@ -28,15 +38,15 @@ public class Booking {
     private LocalDateTime bookingEnd;
 
 
-    protected Booking() {
+    public Booking() {
     }
 
-    public Booking(Long restaurantId,
+    public Booking(Restaurant restaurant,
                    Customer customer,
                    Long tableId,
                    LocalDateTime bookingStart,
                    LocalDateTime bookingEnd) {
-        this.restaurantId = restaurantId;
+        this.restaurant = restaurant;
         this.customer = customer;
         this.tableId = tableId;
         this.bookingStart = bookingStart;
@@ -46,10 +56,6 @@ public class Booking {
     // Getters
     public Long getId() {
         return id;
-    }
-
-    public Long getRestaurantId() {
-        return restaurantId;
     }
 
     public Long getTableId() {
@@ -68,15 +74,26 @@ public class Booking {
         return customer;
     }
 
+    public Set<DiningTable> getTables() {
+        return tables;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
 
     // 🔹 Setters (NYTT)
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setTables(Set<DiningTable> tables) {
+        this.tables = tables;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void setTableId(Long tableId) {
@@ -95,7 +112,8 @@ public class Booking {
     public String toString() {
         return "Booking{" +
             "id=" + id +
-            ", restaurantId=" + restaurantId +
+            "custumor=" + customer.getFirstName() + " " + customer.getLastName() +
+            ", restaurantId=" + restaurant +
             ", tableId=" + tableId +
             ", bookingStart=" + bookingStart +
             ", bookingEnd=" + bookingEnd +

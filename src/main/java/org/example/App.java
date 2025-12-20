@@ -1,12 +1,13 @@
 package org.example;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceConfiguration;
 import org.example.entities.*;
 import org.hibernate.jpa.HibernatePersistenceConfiguration;
+
+import java.awt.print.Book;
 
 public class App {
     public static void main(String[] args) {
@@ -23,8 +24,7 @@ public class App {
 
         try(EntityManagerFactory emf = cfg.createEntityManagerFactory()){
             emf.runInTransaction( em->{
-                DiningTable table = new DiningTable();
-                em.persist(table);
+                //Todo: create entities
             });
         }
 
