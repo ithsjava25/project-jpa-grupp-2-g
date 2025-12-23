@@ -9,9 +9,9 @@ import org.hibernate.jpa.HibernatePersistenceConfiguration;
  * This class handles the connection to the database through JPA, Hibernate and HikariCP
  * It creates one centralized EntityManagerFactory that can be used in the whole program
  */
-public class DataSource {
+public class ConnectionProvider {
 
-    private static final PersistenceConfiguration cfg = new HibernatePersistenceConfiguration("persist")
+    private static final PersistenceConfiguration cfg = new HibernatePersistenceConfiguration("persistence")
         .jdbcUrl("jdbc:mysql://localhost:3306/app_db")
         .jdbcUsername("grupp2")
         .jdbcPassword(System.getenv("PASSWORD"))
@@ -24,7 +24,7 @@ public class DataSource {
 
     private static final EntityManagerFactory EMF = cfg.createEntityManagerFactory();
 
-    private DataSource(){}
+    private ConnectionProvider(){}
 
     public static EntityManagerFactory getEMF() {
         return EMF;
