@@ -1,4 +1,17 @@
-package org.example.interfaces;
+package org.example.repositories;
 
-public class DiningTableInter {
+import org.example.entities.DiningTable;
+import java.util.List;
+
+public interface DiningTableInter {
+
+    void save(DiningTable table);
+
+    DiningTable findById(Long id);
+
+    List<DiningTable> findAll();
+
+    void update(DiningTable table);
+
+    void delete(DiningTable table);
 }
