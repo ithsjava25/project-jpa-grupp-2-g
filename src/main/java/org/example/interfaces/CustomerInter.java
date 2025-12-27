@@ -1,13 +1,17 @@
-package org.example.factories;
+package org.example.repositories;
 
 import org.example.entities.Customer;
+import java.util.List;
 
-public class CustomerFactory {
+public interface CustomerInter {
 
-    public static Customer createCustomer(String name, String email) {
-        Customer customer = new Customer();
-        customer.setName(name);
-        customer.setEmail(email);
-        return customer;
-    }
+    void save(Customer customer);
+
+    Customer findById(Long id);
+
+    List<Customer> findAll();
+
+    void update(Customer customer);
+
+    void delete(Customer customer);
 }

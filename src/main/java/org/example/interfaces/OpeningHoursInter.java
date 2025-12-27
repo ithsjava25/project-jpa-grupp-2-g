@@ -1,15 +1,17 @@
-package org.example.factories;
+package org.example.repositories;
 
 import org.example.entities.OpeningHours;
-import java.time.LocalTime;
+import java.util.List;
 
-public class OpeningHoursFactory {
+public interface OpeningHoursInter {
 
-    public static OpeningHours createOpeningHours(String day, LocalTime open, LocalTime close) {
-        OpeningHours oh = new OpeningHours();
-        oh.setDay(day);
-        oh.setOpenTime(open);
-        oh.setCloseTime(close);
-        return oh;
-    }
+    void save(OpeningHours openingHours);
+
+    OpeningHours findById(Long id);
+
+    List<OpeningHours> findAll();
+
+    void update(OpeningHours openingHours);
+
+    void delete(OpeningHours openingHours);
 }
