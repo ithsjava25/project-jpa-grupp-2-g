@@ -1,17 +1,15 @@
-package org.example.repositories;
+package org.example.factories;
 
 import org.example.entities.DiningTable;
-import java.util.List;
+import org.example.entities.Restaurant;
 
-public interface DiningTableInter {
+public class DiningTableFactory {
 
-    void save(DiningTable table);
-
-    DiningTable findById(Long id);
-
-    List<DiningTable> findAll();
-
-    void update(DiningTable table);
-
-    void delete(DiningTable table);
+    public static DiningTable createTable(int tableNumber, int seats, Restaurant restaurant) {
+        DiningTable table = new DiningTable();
+        table.setTableNumber(tableNumber);
+        table.setSeats(seats);
+        table.setRestaurant(restaurant);
+        return table;
+    }
 }
