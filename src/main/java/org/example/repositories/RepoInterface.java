@@ -22,10 +22,4 @@ public interface RepoInterface <T>{
      */
     void delete(T object);
 
-    /**
-     *
-     * @param id of the entity that should be retrieved
-     * @return entity if found
-     */
-    Optional<T> findById(Long id);
 }
