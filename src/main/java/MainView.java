@@ -9,7 +9,6 @@ public class MainView {
 
     private BorderPane root;
     private GridPane grid;
-
     public MainView() {
         root = new BorderPane();
         createCategoryGrid();
