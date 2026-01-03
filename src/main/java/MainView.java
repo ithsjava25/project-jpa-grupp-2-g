@@ -1,3 +1,5 @@
+package se.restaurantbooking.ui;
+
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
