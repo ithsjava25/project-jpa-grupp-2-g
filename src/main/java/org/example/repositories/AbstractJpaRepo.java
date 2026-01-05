@@ -8,8 +8,10 @@ import java.util.function.Consumer;
 
 public abstract class AbstractJpaRepo <T, ID> {
 
-    private final Class<T> entityClass;
+    private Class<T> entityClass;
     private final EntityManagerFactory emf = ConnectionProvider.getEMF();
+
+    public AbstractJpaRepo(){}
 
     public AbstractJpaRepo(Class <T> entityClass){
         this.entityClass = entityClass;
