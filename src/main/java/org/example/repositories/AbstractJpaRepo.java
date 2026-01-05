@@ -1,8 +1,6 @@
 package org.example.repositories;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.*;
 import org.example.ConnectionProvider;
 
 import java.util.List;
@@ -34,6 +32,13 @@ public abstract class AbstractJpaRepo <T, ID> {
 
     public void add(T object){
         executeInTransaction(em -> em.persist(object));
+    }
+
+    public void addALL(List<T> objects){
+        executeInTransaction(em -> {
+            for(T object : objects)
+                em.persist(object);
+        });
     }
 
     public void update(T object){
@@ -69,10 +74,10 @@ public abstract class AbstractJpaRepo <T, ID> {
         }
     }
 
-    public List<T> findByProperty(String condition, Object value) {
+    public List<T> findByProperty(String column, Object value) {
         try(EntityManager em = emf.createEntityManager()) {
             String query = "Select * from " + entityClass.getSimpleName() + " where ? like ?";
-            return em.createQuery(query, entityClass).setParameter(1, condition).setParameter(2, value).getResultList();
+            return em.createQuery(query, entityClass).setParameter(1, column).setParameter(2, value).getResultList();
         }
     }
 
