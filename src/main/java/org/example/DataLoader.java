@@ -22,8 +22,14 @@ public class DataLoader {
         em.flush();
 
         //Adds the test restaurant-
-        Restaurant restaurant = new Restaurant("TOSO", "Asiatiskt", "Götaplatsen 1", BigDecimal.valueOf(1000), 0.0);
+        Restaurant restaurant = new Restaurant();
+        restaurant.setName("TOSO");
+        restaurant.setAddress("Götaplatsen 1");
+        restaurant.setCategory("Asian");
+        restaurant.setRating(0.0);
+        restaurant.setPriceRange(BigDecimal.valueOf(1000));
         em.persist(restaurant);
+
 
         //Adds a customer
         Customer customer = new Customer("Test", "Testsson", "12345", "test@email.com");
