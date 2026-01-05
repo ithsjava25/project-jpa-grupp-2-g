@@ -25,8 +25,7 @@ public class Restaurant {
     private String address;
     private double rating;
 
-    public Restaurant(Long id, String name, String category, String address, BigDecimal priceRange, double rating) {
-        this.id = id;
+    public Restaurant(String name, String category, String address, BigDecimal priceRange, double rating) {
         this.name = name;
         this.category = category;
         this.address = address;
