@@ -30,6 +30,7 @@ public class DataLoader {
         restaurant.setPriceRange(BigDecimal.valueOf(1000));
         em.persist(restaurant);
 
+
         //Adds a customer
         Customer customer = new Customer("Test", "Testsson", "12345", "test@email.com");
         em.persist(customer);
