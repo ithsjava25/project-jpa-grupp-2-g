@@ -18,7 +18,7 @@ public class Restaurant {
     private List<OpeningHours> openingHours = new ArrayList<>();
 
     @Column(name = "mean_price")
-    private BigDecimal mean_price;
+    private BigDecimal meanPrice;
 
     private String name;
     private String category;
@@ -29,7 +29,7 @@ public class Restaurant {
         this.name = name;
         this.category = category;
         this.address = address;
-        this.mean_price = mean_price;
+        this.meanPrice = mean_price;
         this.rating = rating;
     }
 
@@ -63,12 +63,12 @@ public class Restaurant {
         this.address = address;
     }
 
-    public BigDecimal getMean_price() {
-        return mean_price;
+    public BigDecimal getMeanPrice() {
+        return meanPrice;
     }
 
-    public void setMean_price(BigDecimal price_range) {
-        this.mean_price = price_range;
+    public void setMeanPrice(BigDecimal price_range) {
+        this.meanPrice = price_range;
     }
 
     public double getRating() {
@@ -86,7 +86,7 @@ public class Restaurant {
             ", name='" + name + '\'' +
             ", category='" + category + '\'' +
             ", address='" + address + '\'' +
-            ", priceRange=" + mean_price +
+            ", priceRange=" + meanPrice +
             ", rating=" + rating +
             '}';
     }
