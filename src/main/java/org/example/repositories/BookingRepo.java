@@ -1,4 +1,10 @@
 package org.example.repositories;
 
-public class BookingRepo {
+import org.example.entities.Booking;
+
+public class BookingRepo extends BaseRepo<Booking> {
+
+    public BookingRepo(){
+        super(Booking.class);
+    }
 }

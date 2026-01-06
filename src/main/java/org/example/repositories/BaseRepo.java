@@ -6,14 +6,14 @@ import org.example.ConnectionProvider;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class AbstractJpaRepo <T, ID> {
+public abstract class BaseRepo<T> {
 
     private Class<T> entityClass;
     private final EntityManagerFactory emf = ConnectionProvider.getEMF();
 
-    public AbstractJpaRepo(){}
+    public BaseRepo(){}
 
-    public AbstractJpaRepo(Class <T> entityClass){
+    public BaseRepo(Class <T> entityClass){
         this.entityClass = entityClass;
     }
 
@@ -51,16 +51,13 @@ public abstract class AbstractJpaRepo <T, ID> {
         executeInTransaction(em -> em.remove(em.merge(object)));
     }
 
-    public boolean deleteById(ID id){
-        final boolean[] deleted = {false};
+    public void deleteById(Long id){
         executeInTransaction(em -> {
             T entity = em.find(entityClass, id);
             if(entity != null) {
                 em.remove(entity);
-                deleted[0] = true;
             }
         });
-        return deleted[0];
     }
 
     public List<T> findAll(){
@@ -70,7 +67,7 @@ public abstract class AbstractJpaRepo <T, ID> {
         }
     }
 
-    public T findById(ID id){
+    public T findById(Long id){
         try(EntityManager em = emf.createEntityManager()) {
             return em.find(entityClass, id);
         }
@@ -78,7 +75,7 @@ public abstract class AbstractJpaRepo <T, ID> {
 
     public List<T> findByProperty(String column, Object value) {
         try(EntityManager em = emf.createEntityManager()) {
-            String query = "Select * from " + entityClass.getSimpleName() + " where ? like ?";
+            String query = "Select e from " + entityClass.getSimpleName() + " e where ?1 like ?2";
             return em.createQuery(query, entityClass).setParameter(1, column).setParameter(2, value).getResultList();
         }
     }

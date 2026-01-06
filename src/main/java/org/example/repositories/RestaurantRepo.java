@@ -1,5 +1,11 @@
 package org.example.repositories;
 
-public class RestaurantRepo {
+import org.example.entities.Restaurant;
+
+public class RestaurantRepo extends BaseRepo<Restaurant>{
+
+    public RestaurantRepo(){
+        super(Restaurant.class);
+    }
 
 }
