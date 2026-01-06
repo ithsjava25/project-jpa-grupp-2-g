@@ -90,4 +90,5 @@ public class Restaurant {
             ", rating=" + rating +
             '}';
     }
+
 }
