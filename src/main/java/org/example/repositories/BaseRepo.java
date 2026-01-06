@@ -75,7 +75,7 @@ public abstract class BaseRepo<T> {
 
     public List<T> findByProperty(String column, Object value) {
         try(EntityManager em = emf.createEntityManager()) {
-            String query = "Select * from " + entityClass.getSimpleName() + " where ? like ?";
+            String query = "Select e from " + entityClass.getSimpleName() + " e where ?1 like ?2";
             return em.createQuery(query, entityClass).setParameter(1, column).setParameter(2, value).getResultList();
         }
     }
