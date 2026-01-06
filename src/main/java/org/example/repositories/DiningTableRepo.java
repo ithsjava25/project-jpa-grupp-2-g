@@ -36,6 +36,7 @@ public class DiningTableRepo {
             .setParameter("restaurant", restaurant)
             .setParameter("numberOfGuests", numberOfGuests)
             .getResultList();
+
     }
 
 }
