@@ -1,7 +1,7 @@
-package org.example.repositories;
+package backend.repositories;
 
 import jakarta.persistence.*;
-import org.example.ConnectionProvider;
+import backend.ConnectionProvider;
 
 import java.util.List;
 import java.util.function.Consumer;

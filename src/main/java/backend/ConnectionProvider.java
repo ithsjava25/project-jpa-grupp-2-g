@@ -1,12 +1,10 @@
-package org.example;
+package backend;
 
+import backend.entities.*;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceConfiguration;
 import org.example.entities.*;
 import org.hibernate.jpa.HibernatePersistenceConfiguration;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * This class handles the connection to the database through JPA, Hibernate and HikariCP

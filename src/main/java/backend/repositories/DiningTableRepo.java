@@ -1,9 +1,7 @@
-package org.example.repositories;
+package backend.repositories;
 
-import jakarta.persistence.EntityManager;
-import org.example.ConnectionProvider;
-import org.example.entities.DiningTable;
-import org.example.entities.Restaurant;
+import backend.entities.DiningTable;
+import backend.entities.Restaurant;
 
 import java.util.List;
 
