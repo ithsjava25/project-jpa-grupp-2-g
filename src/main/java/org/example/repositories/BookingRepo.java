@@ -53,7 +53,6 @@ public class BookingRepo extends BaseRepo<Booking> {
         }
     }
 
-
     public List<Booking> fetchBookingsByCustomer(Customer customer) {
         try (EntityManager em =
                  ConnectionProvider.getEMF().createEntityManager()) {

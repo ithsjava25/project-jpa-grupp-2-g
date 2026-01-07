@@ -8,11 +8,7 @@ public class CustomerRepo extends BaseRepo<Customer> {
     public CustomerRepo(){
         super(Customer.class);
     }
-    EntityManager em;
 
-    public CustomerRepo(EntityManager em) {
-        this.em = em;
-    }
     public Customer fetchCustomerByFirstNameAndLastName(String firstName, String lastName) {
         try (EntityManager em =
                  ConnectionProvider.getEMF().createEntityManager()) {
