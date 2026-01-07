@@ -1,6 +1,6 @@
-package org.example.repositories;
+package backend.repositories;
 
-import org.example.entities.Restaurant;
+import backend.entities.Restaurant;
 
 public class RestaurantRepo extends BaseRepo<Restaurant>{
 
