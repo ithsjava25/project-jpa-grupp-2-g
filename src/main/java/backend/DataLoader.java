@@ -1,9 +1,9 @@
-package org.example;
+package backend;
 
 import jakarta.persistence.EntityManager;
-import org.example.entities.Customer;
-import org.example.entities.DiningTable;
-import org.example.entities.Restaurant;
+import backend.entities.Customer;
+import backend.entities.DiningTable;
+import backend.entities.Restaurant;
 
 import java.math.BigDecimal;
 
@@ -27,7 +27,7 @@ public class DataLoader {
         restaurant.setAddress("Götaplatsen 1");
         restaurant.setCategory("Asian");
         restaurant.setRating(0.0);
-        restaurant.setPriceRange(BigDecimal.valueOf(1000));
+        restaurant.setMeanPrice(BigDecimal.valueOf(1000));
         em.persist(restaurant);
 
 

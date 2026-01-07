@@ -1,10 +1,11 @@
-package org.example.repositories;
+package backend.repositories;
 
 import jakarta.persistence.*;
-import org.example.ConnectionProvider;
+import backend.ConnectionProvider;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public abstract class BaseRepo<T> {
 
@@ -28,6 +29,21 @@ public abstract class BaseRepo<T> {
                 if(et.isActive())
                     et.rollback();
                 throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public <R> R callInTransaction(Function<EntityManager, R> action) {
+        try (EntityManager em = emf.createEntityManager()) {
+            EntityTransaction tx = em.getTransaction();
+            try {
+                tx.begin();
+                R result = action.apply(em);
+                tx.commit();
+                return result;
+            } catch (RuntimeException e) {
+                if (tx.isActive()) tx.rollback();
+                throw e;
             }
         }
     }
@@ -62,7 +78,7 @@ public abstract class BaseRepo<T> {
 
     public List<T> findAll(){
         try(EntityManager em = emf.createEntityManager()) {
-            String query = "Select * from " + entityClass.getName();
+            String query = "Select e from " + entityClass.getName();
             return em.createQuery(query, entityClass).getResultList();
         }
     }
