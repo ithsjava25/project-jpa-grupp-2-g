@@ -3,7 +3,7 @@ package backend;
 import backend.entities.*;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceConfiguration;
-import org.example.entities.*;
+import backend.entities.*;
 import org.hibernate.jpa.HibernatePersistenceConfiguration;
 
 /**
