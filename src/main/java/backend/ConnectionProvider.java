@@ -1,6 +1,7 @@
 package backend;
 
 import backend.entities.*;
+import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceConfiguration;
 import backend.entities.*;
@@ -11,7 +12,7 @@ import org.hibernate.jpa.HibernatePersistenceConfiguration;
  * It creates one centralized EntityManagerFactory that can be used in the whole program
  */
 public class ConnectionProvider {
-
+    private static final Dotenv env = Dotenv.configure().load();
     private static final PersistenceConfiguration cfg;
     private static final EntityManagerFactory EMF;
 
@@ -20,7 +21,7 @@ public class ConnectionProvider {
             cfg = new HibernatePersistenceConfiguration("persistence")
                 .jdbcUrl("jdbc:mysql://localhost:3306/app_db?createDatabaseIfNotExist=true")
                 .jdbcUsername("grupp2")
-                .jdbcPassword(System.getenv("PASSWORD"))
+                .jdbcPassword(env.get("PASSWORD"))
                 .property("hibernate.connection.provider_class", "org.hibernate.hikaricp.internal.HikariCPConnectionProvider")
                 .property("hibernate.hbm2ddl.auto", "update")
                 .property("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")

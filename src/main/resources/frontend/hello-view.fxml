@@ -4,9 +4,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
-<VBox alignment="center" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.HelloController">
-    <HBox fx:id="searchBox" spacing="20" alignment="TOP_CENTER" >
-        <Label text="Search for a restaurant: " />
-        <TextField fx:id="restaurantField" />
-    </HBox>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.ListView?>
+<VBox alignment="TOP_LEFT" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.HelloController">
+    <StackPane>
+        <Label fx:id="nameApp" StackPane.alignment="CENTER_LEFT" />
+        <HBox fx:id="searchRestaurantBox" alignment="CENTER" StackPane.alignment="CENTER">
+            <Label text="Search for a restaurant: " />
+            <TextField fx:id="searchRestaurantField" prefWidth="200" onAction="#handleRestaurantSearch" />
+        </HBox>
+    </StackPane>
+    <ListView fx:id="restaurantView"/>
+
 </VBox>
