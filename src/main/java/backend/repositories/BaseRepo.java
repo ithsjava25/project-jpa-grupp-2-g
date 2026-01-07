@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 public abstract class BaseRepo<T> {
 
-    private Class<T> entityClass;
+    public Class<T> entityClass;
     private final EntityManagerFactory emf = ConnectionProvider.getEMF();
 
     public BaseRepo(){}
@@ -78,7 +78,7 @@ public abstract class BaseRepo<T> {
 
     public List<T> findAll(){
         try(EntityManager em = emf.createEntityManager()) {
-            String query = "Select e from " + entityClass.getName();
+            String query = "Select e from " + entityClass.getName() + " e";
             return em.createQuery(query, entityClass).getResultList();
         }
     }
