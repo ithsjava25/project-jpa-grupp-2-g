@@ -30,5 +30,6 @@ public class BookingFactory {
             Booking booking = new Booking(restaurant, customer, tableID, start, end);
 
             return booking;
+
         }
 }
