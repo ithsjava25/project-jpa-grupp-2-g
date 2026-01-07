@@ -1,4 +1,4 @@
-package org.example.services;
+package backend.services;
 
 public class CustomerService {
 

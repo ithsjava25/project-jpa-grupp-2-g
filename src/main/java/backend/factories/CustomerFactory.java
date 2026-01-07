@@ -1,8 +1,8 @@
-package org.example.factories;
+package backend.factories;
 
-import org.example.entities.Customer;
-import org.example.repositories.CustomerRepo;
-import org.example.services.CustomerService;
+import backend.entities.Customer;
+import backend.repositories.CustomerRepo;
+import backend.services.CustomerService;
 
 public class CustomerFactory {
 
