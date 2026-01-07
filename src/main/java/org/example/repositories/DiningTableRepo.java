@@ -7,29 +7,27 @@ import org.example.entities.Restaurant;
 
 import java.util.List;
 
-public class DiningTableRepo extends BaseRepo<DiningTable>{
-    public DiningTableRepo(){
+public class DiningTableRepo extends BaseRepo<DiningTable> {
+    public DiningTableRepo() {
         super(DiningTable.class);
     }
 
     public List<DiningTable> fetchTablesByRestaurant(Restaurant restaurant) {
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-            return em.createQuery("""
+        return callInTransaction(em ->
+            em.createQuery("""
             SELECT t FROM DiningTable t
             WHERE t.restaurant = :restaurant
             ORDER BY t.tableNumber
         """, DiningTable.class)
                 .setParameter("restaurant", restaurant)
-                .getResultList();
-        }
+                .getResultList());
+
     }
 
     public List<DiningTable> fetchByRestaurantAndCapacity(
         Restaurant restaurant, int numberOfGuests) {
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-            return em.createQuery("""
+        return callInTransaction(em ->
+            em.createQuery("""
             SELECT t FROM DiningTable t
             WHERE t.restaurant = :restaurant
               AND t.capacity >= :numberOfGuests
@@ -37,8 +35,7 @@ public class DiningTableRepo extends BaseRepo<DiningTable>{
         """, DiningTable.class)
                 .setParameter("restaurant", restaurant)
                 .setParameter("numberOfGuests", numberOfGuests)
-                .getResultList();
-        }
-
+                .getResultList());
     }
+
 }

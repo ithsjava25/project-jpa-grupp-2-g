@@ -10,17 +10,15 @@ public class CustomerRepo extends BaseRepo<Customer> {
     }
 
     public Customer fetchCustomerByFirstNameAndLastName(String firstName, String lastName) {
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-            return em.createQuery("""
+        return callInTransaction(em ->
+            em.createQuery("""
                     SELECT c FROM Customer c
         WHERE c.firstName = :firstName
         AND  c.lastName = :lastName
         """, Customer.class)
             .setParameter("firstName", firstName)
             .setParameter("lastName", lastName)
-            .getSingleResultOrNull();
-        }
+            .getSingleResultOrNull());
 
     }
 }

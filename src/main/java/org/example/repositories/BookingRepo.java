@@ -17,17 +17,15 @@ public class BookingRepo extends BaseRepo<Booking> {
     }
 
     public List<Booking> fetchBookingsByRestaurant(Restaurant restaurant) {
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-
-            return em.createQuery("""
+        return callInTransaction(em ->
+            em.createQuery("""
                 SELECT b FROM Booking b
                 WHERE b.restaurant = :restaurant
                 ORDER BY b.bookingStart
             """, Booking.class)
                 .setParameter("restaurant", restaurant)
-                .getResultList();
-        }
+                .getResultList());
+
     }
 
 
@@ -35,11 +33,8 @@ public class BookingRepo extends BaseRepo<Booking> {
         DiningTable table,
         LocalDateTime start,
         LocalDateTime end) {
-
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-
-            return em.createQuery("""
+            return callInTransaction(em ->
+                em.createQuery("""
                 SELECT b FROM Booking b
                 JOIN b.tables t
                 WHERE t = :table
@@ -49,21 +44,18 @@ public class BookingRepo extends BaseRepo<Booking> {
                 .setParameter("table", table)
                 .setParameter("start", start)
                 .setParameter("end", end)
-                .getResultList();
-        }
+                .getResultList());
+
     }
 
     public List<Booking> fetchBookingsByCustomer(Customer customer) {
-        try (EntityManager em =
-                 ConnectionProvider.getEMF().createEntityManager()) {
-
-            return em.createQuery("""
+        return callInTransaction(em ->
+            em.createQuery("""
                 SELECT b FROM Booking b
                 WHERE b.customer = :customer
                 ORDER BY b.bookingStart
             """, Booking.class)
                 .setParameter("customer", customer)
-                .getResultList();
-        }
+                .getResultList());
     }
 }
