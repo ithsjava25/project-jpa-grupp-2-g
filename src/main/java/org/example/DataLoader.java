@@ -27,7 +27,7 @@ public class DataLoader {
         restaurant.setAddress("Götaplatsen 1");
         restaurant.setCategory("Asian");
         restaurant.setRating(0.0);
-        restaurant.setPriceRange(BigDecimal.valueOf(1000));
+        restaurant.setMeanPrice(BigDecimal.valueOf(1000));
         em.persist(restaurant);
 
 
