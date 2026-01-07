@@ -1,6 +1,6 @@
-package org.example.repositories;
+package backend.repositories;
 
-import org.example.entities.OpeningHours;
+import backend.entities.OpeningHours;
 
 public class OpeningHoursRepo extends BaseRepo<OpeningHours> {
     public OpeningHoursRepo(){

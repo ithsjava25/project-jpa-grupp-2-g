@@ -1,6 +1,6 @@
-package org.example.repositories;
+package backend.repositories;
 
-import org.example.entities.Customer;
+import backend.entities.Customer;
 
 public class CustomerRepo extends BaseRepo<Customer> {
     public CustomerRepo(){

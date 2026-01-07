@@ -1,9 +1,9 @@
-package org.example;
+package backend;
 
 import jakarta.persistence.EntityManager;
-import org.example.entities.Customer;
-import org.example.entities.DiningTable;
-import org.example.entities.Restaurant;
+import backend.entities.Customer;
+import backend.entities.DiningTable;
+import backend.entities.Restaurant;
 
 import java.math.BigDecimal;
 

@@ -1,6 +1,6 @@
-package org.example.repositories;
+package backend.repositories;
 
-import org.example.entities.Booking;
+import backend.entities.Booking;
 
 public class BookingRepo extends BaseRepo<Booking> {
 

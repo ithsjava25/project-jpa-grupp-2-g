@@ -1,6 +1,6 @@
-package org.example.repositories;
+package backend.repositories;
 
-import org.example.entities.DiningTable;
+import backend.entities.DiningTable;
 
 public class DiningTableRepo extends BaseRepo<DiningTable>{
     public DiningTableRepo(){
