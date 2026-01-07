@@ -1,4 +1,19 @@
 package frontend;
 
-public class HelloFX {
+public class HelloFX extends Application {
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloFX.class.getResource("hello-view.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 640, 480);
+        stage.setTitle("Restaurangbokningar");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
 }
