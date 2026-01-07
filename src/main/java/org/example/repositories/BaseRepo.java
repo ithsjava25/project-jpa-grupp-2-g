@@ -78,7 +78,7 @@ public abstract class BaseRepo<T> {
 
     public List<T> findAll(){
         try(EntityManager em = emf.createEntityManager()) {
-            String query = "Select * from " + entityClass.getName();
+            String query = "Select e from " + entityClass.getName();
             return em.createQuery(query, entityClass).getResultList();
         }
     }
