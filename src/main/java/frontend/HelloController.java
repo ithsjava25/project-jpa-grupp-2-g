@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 
 import java.util.List;
 import java.util.Objects;
@@ -71,9 +72,7 @@ public class HelloController {
                         System.out.println("Could not load picture: " + imagePath);
                     }
                 }
-
             }
-
         };
     }
 
