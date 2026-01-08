@@ -1,3 +1,41 @@
-#appName{
-    -fx-text-fill: blue;
+#appName {
+    -fx-text-fill: #2e6a8d;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 0 20 0;
+}
+
+.category-box {
+    -fx-padding: 25;
+    -fx-pref-width: 240;
+    -fx-pref-height: 100;
+    -fx-border-color: #cfcfcf;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-background-color: #2e6a8d;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.5, 0, 2);
+}
+
+.category-box:hover {
+    -fx-background-color: #e6f0ff;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.category-box.selected {
+    -fx-background-color: #1e90ff;
+    -fx-border-color: #1e90ff;
+}
+
+.category-box.selected .category-label {
+    -fx-text-fill: white;
+}
+
+.category-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Helvetica";
 }
