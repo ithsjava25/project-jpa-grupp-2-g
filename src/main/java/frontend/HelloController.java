@@ -20,12 +20,9 @@ import java.util.Objects;
 
 public class HelloController {
     private final HelloModel model = new HelloModel();
-    private final ObservableList<Restaurant> filteredRestaurants = FXCollections.observableArrayList();
 
     @FXML
-    public ListView<Restaurant> restaurantView;
-    @FXML
-    private Label nameApp;
+    private Label appName;
     @FXML
     private TextField searchRestaurantField;
     @FXML
@@ -33,19 +30,19 @@ public class HelloController {
 
     @FXML
     private void initialize() {
-        if (nameApp != null) {
-            nameApp.setText(model.getAppName());
+        if (appName != null) {
+            appName.setText(model.getAppName());
         }
 
-        filteredRestaurants.setAll(model.getResturantList(""));
-        displayRestaurants(filteredRestaurants);
+        List<Restaurant> allRestaurants = model.getResturantList("");
+        displayRestaurants(allRestaurants);
     }
 
     @FXML
     public void handleRestaurantSearch(ActionEvent event){
         String restaurant = searchRestaurantField.getText();
         List<Restaurant> restaurantList = model.getResturantList(restaurant);
-        filteredRestaurants.setAll(restaurantList);
+        displayRestaurants(restaurantList);
     }
 
     private VBox createRestaurantContainer(Restaurant restaurant){

@@ -1,9 +1,11 @@
-INSERT INTO Restaurant (name, category, address, rating, mean_price) VALUES
-('Pizzeria Napoli','Pizza','Storgatan 12',4.5,120.0),
-('Sushi Yama','Sushi','Kungsgatan 5',4.2,180.0),
-('Burger House','Burgare','Sveavägen 44',4.0,140.0),
-('Green Garden','Vegetariskt','Odengatan 21',4.6,160.0),
-('Curry Palace','Indiskt','Hornsgatan 88',4.3,150.0);
+INSERT INTO Restaurant (name, category, address, rating, mean_price, setImagePath) VALUES
+('Pizzeria Napoli','Pizza','Storgatan 12',4.5,120.0, 'pizzeriaNapoli.png'),
+('Sushi Yama','Sushi','Kungsgatan 5',4.2,180.0, 'sushiYama.png'),
+('Burger House','Hamburger','Sveavägen 44',4.0,140.0, 'burgerHouse.png'),
+('Green Garden','Vegetarian','Odengatan 21',4.6,160.0, 'greenGarden.png'),
+('Curry Palace','Indian','Hornsgatan 88',4.3,150.0, 'curryPalace.png'),
+('TOSO', 'Asian', 'Götaplatsen 1', 4.9, 400, 'toso.png'),
+('Lilla Taverna', 'Greek', 'Olivedalsgatan 17', 3.7, 180, 'lillaTaverna.png')
 
 
 INSERT INTO Customer (firstName, lastName, phoneNumber, email) VALUES
