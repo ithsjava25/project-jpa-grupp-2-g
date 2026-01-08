@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
 <VBox alignment="TOP_LEFT" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.HelloController">
     <StackPane>
         <Label fx:id="nameApp" StackPane.alignment="CENTER_LEFT" />
@@ -14,6 +16,10 @@
             <TextField fx:id="searchRestaurantField" prefWidth="200" onAction="#handleRestaurantSearch" />
         </HBox>
     </StackPane>
-    <ListView fx:id="restaurantView"/>
+    <ScrollPane fitToWidth="true" prefHeight="300">
+        <FlowPane fx:id="restaurantContainer" hgap="10" vgap="10">
 
+        </FlowPane>
+    </ScrollPane>
+    <ListView fx:id="restaurantView"/>
 </VBox>
