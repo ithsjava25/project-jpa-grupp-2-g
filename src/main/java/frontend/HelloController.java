@@ -38,9 +38,6 @@ public class HelloController {
         }
 
         filteredRestaurants.setAll(model.getResturantList(""));
-//        restaurantView.setItems(filteredRestaurants);
-//        restaurantView.setOrientation(Orientation.HORIZONTAL);
-//        restaurantView.setCellFactory(list -> restaurantNamePicture());
         displayRestaurants(filteredRestaurants);
     }
 
@@ -80,36 +77,5 @@ public class HelloController {
             restaurantContainer.getChildren().add(box);
         }
     }
-//
-//    private ListCell<Restaurant> restaurantNamePicture(){
-//        return new ListCell<>(){
-//            private ImageView imageView = new ImageView();
-//
-//            @Override
-//            public void updateItem(Restaurant restaurant, boolean empty){
-//                super.updateItem(restaurant, empty);
-//                if(empty || restaurant == null){
-//                    setText("");
-//                    setGraphic(null);
-//                } else {
-//                    setText(restaurant.getName());
-//
-//                    //Fetch image-path and create graphic
-//                    String imagePath = "/images/" + restaurant.getImagePath();
-//                    try{
-//                        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
-//                        imageView.setImage(image);
-//                        imageView.setFitWidth(50);
-//                        imageView.setFitHeight(50);
-//                        setGraphic(imageView);
-//                    } catch (Exception e) {
-//                        setGraphic(null);
-//                        System.out.println("Could not load picture: " + imagePath);
-//                    }
-//                }
-//            }
-//        };
-//    }
-
 
 }
