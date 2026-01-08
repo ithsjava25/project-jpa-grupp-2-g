@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 
 import javafx.scene.control.Label;
 
@@ -20,14 +19,14 @@ public class HelloController {
     @FXML
     public ListView<Restaurant> restaurantView;
     @FXML
-    private Label nameApp;
+    private Label appName;
     @FXML
     private TextField searchRestaurantField;
 
     @FXML
     private void initialize() {
-        if (nameApp != null) {
-            nameApp.setText(model.getAppName());
+        if (appName != null) {
+            appName.setText(model.getAppName());
         }
 
         filteredRestaurants.setAll(model.getResturantList(""));
