@@ -1,4 +1,4 @@
-package backend;
+package backend.data;
 
 import jakarta.persistence.EntityManager;
 import backend.entities.Customer;
@@ -28,7 +28,18 @@ public class DataLoader {
         restaurant.setCategory("Asian");
         restaurant.setRating(0.0);
         restaurant.setMeanPrice(BigDecimal.valueOf(1000));
+        restaurant.setImagePath("toso.png");
         em.persist(restaurant);
+
+        //Adds another restaurant -
+        Restaurant restaurant2 = new Restaurant();
+        restaurant2.setName("Lilla Taverna");
+        restaurant2.setAddress("Olivedalsgatan 17");
+        restaurant2.setCategory("Greek");
+        restaurant2.setRating(0.0);
+        restaurant2.setMeanPrice(BigDecimal.valueOf(500));
+        restaurant2.setImagePath("lillaTaverna.png");
+        em.persist(restaurant2);
 
 
         //Adds a customer
