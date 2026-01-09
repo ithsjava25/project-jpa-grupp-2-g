@@ -5,7 +5,8 @@ import backend.entities.Customer;
 import backend.entities.DiningTable;
 import backend.entities.Restaurant;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public class BookingRepo extends BaseRepo<Booking> {
@@ -29,8 +30,8 @@ public class BookingRepo extends BaseRepo<Booking> {
 
     public List<Booking> fetchConflictingBookings(
         DiningTable table,
-        LocalDateTime start,
-        LocalDateTime end) {
+        LocalTime start,
+        LocalTime end) {
             return callInTransaction(em ->
                 em.createQuery("""
                 SELECT b FROM Booking b
@@ -54,6 +55,19 @@ public class BookingRepo extends BaseRepo<Booking> {
                 ORDER BY b.bookingStart
             """, Booking.class)
                 .setParameter("customer", customer)
+                .getResultList());
+    }
+//
+    public List<Booking> fetchAllBookingsByTableIdAndDate(
+        Long tableId, LocalDate date) {
+        return callInTransaction(em ->
+            em.createQuery("""
+            SELECT b FROM Booking b
+            WHERE b.tableId = :tableId
+            AND b.date = :date
+        """, Booking.class)
+                .setParameter("tableId", tableId)
+                .setParameter("date", date)
                 .getResultList());
     }
 }

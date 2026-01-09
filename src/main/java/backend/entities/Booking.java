@@ -1,7 +1,11 @@
 package backend.entities;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,14 +20,6 @@ public class Booking {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToMany
-    @JoinTable(
-        name = "booking_table",
-        joinColumns = @JoinColumn(name = "booking_id"),
-        inverseJoinColumns = @JoinColumn(name = "table_id")
-    )
-    private Set<DiningTable> tables = new HashSet<DiningTable>();
-
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
@@ -31,11 +27,14 @@ public class Booking {
     @Column(name = "table_id", nullable = false)
     private Long tableId;
 
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
+
     @Column(name = "booking_start", nullable = false)
-    private LocalDateTime bookingStart;
+    private LocalTime bookingStart;
 
     @Column(name = "booking_end", nullable = false)
-    private LocalDateTime bookingEnd;
+    private LocalTime bookingEnd;
 
 
     public Booking() {
@@ -44,13 +43,15 @@ public class Booking {
     public Booking(Restaurant restaurant,
                    Customer customer,
                    Long tableId,
-                   LocalDateTime bookingStart,
-                   LocalDateTime bookingEnd) {
+                   LocalTime bookingStart,
+                   LocalTime bookingEnd,
+                   LocalDate date) {
         this.restaurant = restaurant;
         this.customer = customer;
         this.tableId = tableId;
         this.bookingStart = bookingStart;
         this.bookingEnd = bookingEnd;
+        this.date = date;
     }
 
     // Getters
@@ -62,11 +63,11 @@ public class Booking {
         return tableId;
     }
 
-    public LocalDateTime getBookingStart() {
+    public LocalTime getBookingStart() {
         return bookingStart;
     }
 
-    public LocalDateTime getBookingEnd() {
+    public LocalTime getBookingEnd() {
         return bookingEnd;
     }
 
@@ -74,12 +75,13 @@ public class Booking {
         return customer;
     }
 
-    public Set<DiningTable> getTables() {
-        return tables;
-    }
 
     public Restaurant getRestaurant() {
         return restaurant;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     // 🔹 Setters (NYTT)
@@ -88,9 +90,6 @@ public class Booking {
         this.restaurant = restaurant;
     }
 
-    public void setTables(Set<DiningTable> tables) {
-        this.tables = tables;
-    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -100,12 +99,16 @@ public class Booking {
         this.tableId = tableId;
     }
 
-    public void setBookingStart(LocalDateTime bookingStart) {
+    public void setBookingStart(LocalTime bookingStart) {
         this.bookingStart = bookingStart;
     }
 
-    public void setBookingEnd(LocalDateTime bookingEnd) {
+    public void setBookingEnd(LocalTime bookingEnd) {
         this.bookingEnd = bookingEnd;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override

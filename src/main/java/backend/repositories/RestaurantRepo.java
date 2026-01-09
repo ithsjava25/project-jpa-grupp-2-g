@@ -1,6 +1,7 @@
 package backend.repositories;
 
 import backend.ConnectionProvider;
+import backend.entities.Booking;
 import backend.entities.Restaurant;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -19,6 +20,18 @@ public class RestaurantRepo extends BaseRepo<Restaurant>{
             String query = "Select e from " + entityClass.getSimpleName() + " e where upper(e.name) like upper(?1) ";
             return em.createQuery(query, entityClass).setParameter(1, "%" + name + "%").getResultList();
         }
+    }
+
+
+    public Restaurant fetchRestaurantByName(String name) {
+        return callInTransaction(em ->
+            em.createQuery("""
+                SELECT r FROM Restaurant r
+                WHERE r.name = :restaurant
+            """, Restaurant.class)
+                .setParameter("restaurant", name)
+                .getSingleResultOrNull());
+
     }
 
 }

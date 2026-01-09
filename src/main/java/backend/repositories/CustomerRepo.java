@@ -19,4 +19,15 @@ public class CustomerRepo extends BaseRepo<Customer> {
             .getSingleResultOrNull());
 
     }
+
+    public Customer fetchCustomerByEmail(String email) {
+        return callInTransaction(em ->
+            em.createQuery("""
+                    SELECT c FROM Customer c
+        WHERE c.email = :email
+        """, Customer.class)
+                .setParameter("email", email)
+                .getSingleResultOrNull());
+
+    }
 }
