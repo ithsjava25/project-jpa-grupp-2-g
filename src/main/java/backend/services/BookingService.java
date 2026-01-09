@@ -33,7 +33,7 @@ public class BookingService {
         LocalTime endTime,
         LocalDate date) {
 
-        // ---------- 1️⃣ Validation ----------
+
         if (restaurantName == null)
             throw new IllegalArgumentException("Restaurant is required");
 
@@ -43,7 +43,7 @@ public class BookingService {
         if (startTime == null || endTime == null || !startTime.isBefore(endTime))
             throw new IllegalArgumentException("Invalid booking time");
 
-        // ---------- 2️⃣ Customer (via CustomerService) ----------
+
 
 
         Customer customer = customerService.createOrFetchCustomer(
