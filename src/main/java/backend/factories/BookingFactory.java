@@ -29,7 +29,7 @@ public class BookingFactory {
             if (start == null || end == null || !start.isBefore(end))
                 throw new IllegalArgumentException("Invalid time");
 
-            Booking booking = new Booking(restaurant, customer, tableId, start, start.plusHours(2),  date);
+            Booking booking = new Booking(restaurant, customer, tableId, start, end,  date);
 
             return booking;
         }
