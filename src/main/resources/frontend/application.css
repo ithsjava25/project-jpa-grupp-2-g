@@ -3,8 +3,6 @@
 }
 
 .restaurantBox{
-    /*-fx-max-width: 150;*/
-    /*-fx-max-height: 150;*/
     -fx-background-color: white;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
