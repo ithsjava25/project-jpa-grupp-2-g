@@ -3,6 +3,7 @@ package frontend;
 import backend.entities.Restaurant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -50,8 +51,7 @@ public class HelloController {
         try{
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
             imageView.setImage(image);
-            imageView.setFitWidth(150);
-            imageView.setFitHeight(100);
+            scaleAndCropImage(imageView, 100, 150);
 
             //Rounds upper two corners of image, so it matches corners of VBox (container)
             Rectangle clip = new Rectangle();
@@ -73,7 +73,27 @@ public class HelloController {
         return container;
     }
 
-    public HBox displayNameAndRating(Restaurant restaurant){
+    private void scaleAndCropImage(ImageView imageView, double targetHeight, double targetWidth){
+        Image image = imageView.getImage();
+
+        double width = image.getWidth();
+        double height = image.getHeight();
+
+        double ratio = Math.min(width / targetWidth, height / targetHeight);
+        double viewWidth = targetWidth * ratio;
+        double viewHeight = targetHeight * ratio;
+
+        //Centers scale, so it does not start from top left corner
+        double x = (width - viewWidth) / 2;
+        double y = (height - viewHeight) / 2;
+
+        imageView.setViewport(new Rectangle2D(x, y, viewWidth, viewHeight));
+        imageView.setFitWidth(targetWidth);
+        imageView.setFitHeight(targetHeight);
+        imageView.setPreserveRatio(false);
+    }
+
+    private HBox displayNameAndRating(Restaurant restaurant){
         HBox container = new HBox();
 
         Label name = new Label(restaurant.getName());
