@@ -5,8 +5,6 @@
 .restaurantBox{
     -fx-background-color: white;
     -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-border-color: white;
     -fx-padding: 0;
 
     /* Gives a small shadow behind the cards */
