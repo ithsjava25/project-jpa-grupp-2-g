@@ -11,6 +11,7 @@ module hellofx {
     requires org.hibernate.orm.core;
     requires java.sql;
     requires io.github.cdimascio.dotenv.java;
+    requires java.desktop;
 
     opens backend.entities to org.hibernate.orm.core;
     opens frontend to javafx.fxml;
