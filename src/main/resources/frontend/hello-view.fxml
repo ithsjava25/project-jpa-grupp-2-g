@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
 
 <VBox alignment="TOP_LEFT" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.HelloController">
     <StackPane>
-
         <Label fx:id="appName" StackPane.alignment="CENTER_LEFT"/>
         <HBox fx:id="searchRestaurantBox" alignment="CENTER" StackPane.alignment="CENTER">
             <Label text="Search for a restaurant: "/>
@@ -17,8 +17,11 @@
         </HBox>
     </StackPane>
 
-    <BorderPane fx:id="categoryContainer" prefHeight="200" prefWidth="600"/>
+    <BorderPane fx:id="categoryContainer" prefHeight="200" prefWidth="600">
+        <center>
+            <GridPane fx:id="grid" />
+        </center>
+    </BorderPane>
 
     <ListView fx:id="restaurantView"/>
-
 </VBox>
