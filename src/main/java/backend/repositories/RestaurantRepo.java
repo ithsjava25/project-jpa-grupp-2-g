@@ -21,4 +21,16 @@ public class RestaurantRepo extends BaseRepo<Restaurant>{
         }
     }
 
+
+    public Restaurant fetchRestaurantByName(String name) {
+        return callInTransaction(em ->
+            em.createQuery("""
+                SELECT r FROM Restaurant r
+                WHERE r.name = :restaurant
+            """, Restaurant.class)
+                .setParameter("restaurant", name)
+                .getSingleResultOrNull());
+
+    }
+
 }
