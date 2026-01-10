@@ -1,9 +1,5 @@
 package frontend;
 
-import backend.entities.Restaurant;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,17 +21,13 @@ public class HelloController {
 
     @FXML
     private void initialize() {
-        if (appName != null) {
-            appName.setText(model.getAppName());
-        }
-
+        appName.setText(model.getAppName());
         categoryManager = new CategoryManager(this);
         categoryManager.createCategoryGrid();
     }
 
     @FXML
-    public void handleRestaurantSearch(ActionEvent event) {
-    }
+    public void handleRestaurantSearch() {}
 
     public GridPane getGrid() {
         return grid;
