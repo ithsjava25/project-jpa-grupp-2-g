@@ -24,13 +24,15 @@ public class Restaurant {
     private String category;
     private String address;
     private double rating;
+    private String imagePath;
 
-    public Restaurant(String name, String category, String address, BigDecimal mean_price, double rating) {
+    public Restaurant(String name, String category, String address, BigDecimal mean_price, double rating, String imagePath) {
         this.name = name;
         this.category = category;
         this.address = address;
         this.meanPrice = mean_price;
         this.rating = rating;
+        this.imagePath = imagePath;
     }
 
     public Restaurant(){}
@@ -77,6 +79,14 @@ public class Restaurant {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override
