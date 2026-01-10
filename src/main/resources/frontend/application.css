@@ -1,19 +1,23 @@
-#appName{
-    -fx-text-fill: blue;
-}
-
-.restaurantBox{
-    -fx-background-color: white;
-    -fx-background-radius: 15;
-    -fx-padding: 0;
-
-    /* Gives a small shadow behind the cards */
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
-}
-
-.restaurantBox .label{
-    -fx-padding: 10;
+.category-button {
+    -fx-padding: 10 20;  /* padding runt texten */
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 20;  /* rundade hörn */
+    -fx-border-color: #C16D3C;  /* kantfärg */
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D88746;
+    -fx-alignment: center;
     -fx-font-family: "Agency FB";
-    -fx-font-size: 16;
 }
 
+.category-button:hover {
+    -fx-background-color: #e0e0e0;  /* bakgrundsfärg vid hover */
+    -fx-border-color: #bbb;  /* kantfärg vid hover */
+}
+
+.category-button:pressed {
+    -fx-background-color: #d0d0d0;
+    -fx-border-color: #aaa;
+}
