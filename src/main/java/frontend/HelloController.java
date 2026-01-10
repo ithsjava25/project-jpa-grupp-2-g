@@ -3,17 +3,12 @@ package frontend;
 import backend.entities.Restaurant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Rectangle;
 
 import java.util.List;
-import java.util.Objects;
 
 public class HelloController {
     private final HelloModel model = new HelloModel();
@@ -42,76 +37,11 @@ public class HelloController {
         displayRestaurants(restaurantList);
     }
 
-    private VBox createRestaurantContainer(Restaurant restaurant){
-        VBox container = new VBox(10);
-        container.getStyleClass().add("restaurantBox");
-
-        ImageView imageView = new ImageView();
-        String imagePath = "/images/" + restaurant.getImagePath();
-        try{
-            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
-            imageView.setImage(image);
-            scaleAndCropImage(imageView, 100, 150);
-
-            //Rounds upper two corners of image, so it matches corners of VBox (container)
-            Rectangle clip = new Rectangle();
-            clip.widthProperty().bind(imageView.fitWidthProperty());
-            clip.heightProperty().bind(imageView.fitHeightProperty().add(50));
-            clip.setArcWidth(30);
-            clip.setArcHeight(30);
-
-            imageView.setClip(clip);
-
-        } catch (Exception e) {
-            imageView.setImage(null);
-            System.out.println("Could not find: " + imagePath);
-        }
-
-        HBox hbox = displayNameAndRating(restaurant);
-
-        container.getChildren().addAll(imageView, hbox);
-        return container;
-    }
-
-    private void scaleAndCropImage(ImageView imageView, double targetHeight, double targetWidth){
-        Image image = imageView.getImage();
-
-        double width = image.getWidth();
-        double height = image.getHeight();
-
-        double ratio = Math.min(width / targetWidth, height / targetHeight);
-        double viewWidth = targetWidth * ratio;
-        double viewHeight = targetHeight * ratio;
-
-        //Centers scale, so it does not start from top left corner
-        double x = (width - viewWidth) / 2;
-        double y = (height - viewHeight) / 2;
-
-        imageView.setViewport(new Rectangle2D(x, y, viewWidth, viewHeight));
-        imageView.setFitWidth(targetWidth);
-        imageView.setFitHeight(targetHeight);
-        imageView.setPreserveRatio(false);
-    }
-
-    private HBox displayNameAndRating(Restaurant restaurant){
-        HBox container = new HBox();
-
-        Label name = new Label(restaurant.getName());
-        Label rating = new Label("⭐ " + restaurant.getRating());
-
-        //Used to push rating to the right side of the box
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-
-        container.getChildren().addAll(name, spacer, rating);
-        return container;
-    }
-
     private void displayRestaurants(List<Restaurant> restaurants){
         restaurantContainer.getChildren().clear();
         for(Restaurant r : restaurants){
-            VBox box = createRestaurantContainer(r);
-            restaurantContainer.getChildren().add(box);
+            RestaurantCard restaurantCard = new RestaurantCard(r);
+            restaurantContainer.getChildren().add(restaurantCard);
         }
     }
 
