@@ -1,16 +1,14 @@
 package backend.factories;
 
 import backend.entities.Customer;
-import backend.repositories.CustomerRepo;
-import backend.services.CustomerService;
 
 public class CustomerFactory {
 
     public Customer createCustomer(
         String firstName,
         String lastName,
-        String email,
-        String phoneNumber) {
+        String phoneNumber,
+        String email) {
 
         if (!validateName(firstName))
             throw new IllegalArgumentException("Invalid first name");
@@ -24,7 +22,7 @@ public class CustomerFactory {
         if (!validateEmail(email))
             throw new IllegalArgumentException("Invalid email");
 
-        Customer customer = new Customer(firstName, lastName, email, phoneNumber);
+        Customer customer = new Customer(firstName, lastName, phoneNumber, email);
 
         return customer;
     }
@@ -32,14 +30,18 @@ public class CustomerFactory {
     private boolean validateName(String name) {
         return name != null
             && !name.isBlank()
-            && name.matches("^[a-zA-ZåäöÅÄÖ]+$");
+            && name.matches("^[a-zA-ZåäöÅÄÖ ']+$");
     }
 
     private boolean validatePhoneNumber(String number) {
-        return number != null;
+            return number != null
+                    && !number.isBlank()
+                    && number.matches("^[+]?[0-9\\s-]{7,}$");
     }
 
     private boolean validateEmail(String email) {
-        return email != null;
+            return email != null
+                    && !email.isBlank()
+                    && email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
     }
 }

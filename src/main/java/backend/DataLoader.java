@@ -29,7 +29,7 @@ public class DataLoader {
         restaurant.setRating(0.0);
         restaurant.setMeanPrice(BigDecimal.valueOf(1000));
         em.persist(restaurant);
-
+        em.flush();
 
         //Adds a customer
         Customer customer = new Customer("Test", "Testsson", "12345", "test@email.com");

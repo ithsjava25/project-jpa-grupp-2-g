@@ -15,13 +15,13 @@ public class CustomerService {
         String phoneNumber,
         String email) {
 
-        Customer customer = customerRepo.fetchCustomerByEmail(email);
+        Customer customer = customerRepo.fetchCustomerByFirstNameLastLastNameAndPhoneNumber(firstName, lastName, phoneNumber);
 
         if(customer == null) {
             customer = customerFactory.createCustomer(
                 firstName, lastName, phoneNumber, email
             );
-            customerRepo.update(customer);
+            customerRepo.add(customer);
         }
 
 

@@ -27,7 +27,7 @@ public class DiningTableRepo extends BaseRepo<DiningTable> {
         return callInTransaction(em ->
             em.createQuery("""
             SELECT t FROM DiningTable t
-                JOIN Restaurant r ON r = t.restaurant
+                JOIN t.restaurant r
             WHERE r.name = :restaurantName
               AND t.seatCapacity >= :numberOfGuests
             ORDER BY t.seatCapacity

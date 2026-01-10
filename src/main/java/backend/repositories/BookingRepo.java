@@ -27,26 +27,6 @@ public class BookingRepo extends BaseRepo<Booking> {
 
     }
 
-
-    public List<Booking> fetchConflictingBookings(
-        DiningTable table,
-        LocalTime start,
-        LocalTime end) {
-            return callInTransaction(em ->
-                em.createQuery("""
-                SELECT b FROM Booking b
-                JOIN b.tables t
-                WHERE t = :table
-                  AND b.bookingStart < :end
-                  AND b.bookingEnd   > :start
-            """, Booking.class)
-                .setParameter("table", table)
-                .setParameter("start", start)
-                .setParameter("end", end)
-                .getResultList());
-
-    }
-
     public List<Booking> fetchBookingsByCustomer(Customer customer) {
         return callInTransaction(em ->
             em.createQuery("""

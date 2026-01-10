@@ -1,7 +1,6 @@
 package backend.repositories;
 
 import backend.ConnectionProvider;
-import backend.entities.Booking;
 import backend.entities.Restaurant;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -2,14 +2,9 @@ package backend.factories;
 
 import backend.entities.Booking;
 import backend.entities.Customer;
-import backend.entities.DiningTable;
 import backend.entities.Restaurant;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.Set;
 
 public class BookingFactory {
 
@@ -28,6 +23,10 @@ public class BookingFactory {
                 throw new IllegalArgumentException("Customer required");
             if (start == null || end == null || !start.isBefore(end))
                 throw new IllegalArgumentException("Invalid time");
+            if (tableId == null)
+                throw new IllegalArgumentException("Table id required");
+            if (date == null)
+                throw new IllegalArgumentException("Date required");
 
             Booking booking = new Booking(restaurant, customer, tableId, start, end,  date);
 

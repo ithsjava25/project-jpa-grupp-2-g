@@ -66,7 +66,7 @@ public class BookingService {
             throw new IllegalStateException("No tables with sufficient capacity");
 
 
-        List<DiningTable> tableToBook = new ArrayList<>();//Lista på bordet som ska bokas
+        DiningTable selectedTable = null;
 
         List<Integer> wantedBookingHours = new ArrayList<>();//Jag gjorde det lite enkelt nu med bara Hours. varje Hour blir en int. 1-24
         for(int i = startTime.getHour(); i < endTime.getHour(); i++) {//tar alla int/Hours från start till end som kund anger. Beroende på hur lång bokningstid vi ska gha.
@@ -92,12 +92,12 @@ public class BookingService {
                     .anyMatch(bookedHoursPerTable::contains);
 
             if(!hasConflict){//om Hours i wantedbookingHours inte finns BookedHoursPerTeble så lägg till i vår tableToBook
-                tableToBook.add(table);
+                selectedTable = table;
                 break;
             }
         }
 
-        if(tableToBook.isEmpty()){//om den inte lyckats hitta någon ledig Table.
+        if(selectedTable == null){//om den inte lyckats hitta någon ledig Table.
             throw new IllegalStateException("No tables available during these hours");
         }
 
@@ -105,7 +105,7 @@ public class BookingService {
         Booking booking = bookingFactory.createBooking(
             restaurant,
             customer,
-            tableToBook.getFirst().getId(),//här är vår table
+            selectedTable.getId(),//här är vår table
             startTime,
             endTime,
             date
