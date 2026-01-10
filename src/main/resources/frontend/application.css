@@ -21,3 +21,19 @@
     -fx-background-color: #d0d0d0;
     -fx-border-color: #aaa;
 }
+
+.restaurantBox{
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 0;
+
+    /* Gives a small shadow behind the cards */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.restaurantBox .label{
+    -fx-padding: 10;
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 16;
+}
+
