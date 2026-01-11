@@ -1,4 +1,4 @@
-INSERT INTO Restaurant (name, category, address, rating, mean_price, setImagePath) VALUES
+INSERT INTO Restaurant (name, category, address, rating, mean_price, ImagePath) VALUES
 ('Pizzeria Napoli','Pizza','Storgatan 12',4.5,120.0, 'pizzeriaNapoli.png'),
 ('Sushi Yama','Sushi','Kungsgatan 5',4.2,180.0, 'sushiYama.png'),
 ('Burger House','Hamburger','Sveavägen 44',4.0,140.0, 'burgerHouse.png'),
