@@ -25,10 +25,10 @@ public class BookingFactory {
                 throw new IllegalArgumentException("Invalid time");
             if (tableId == null)
                 throw new IllegalArgumentException("Table id required");
-            if (date == null)
-                throw new IllegalArgumentException("Date required");
+            if (date == null || date.isBefore(LocalDate.now()))
+                throw new IllegalArgumentException("Invalid booking date. Date must be today or later");
 
-            Booking booking = new Booking(restaurant, customer, tableId, start, end,  date);
+            Booking booking = new Booking(restaurant, customer, tableId, start, start.plusHours(2),  date);
 
             return booking;
         }

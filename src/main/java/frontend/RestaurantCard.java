@@ -11,12 +11,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 public class RestaurantCard extends VBox {
 
-    public RestaurantCard(Restaurant restaurant){
+    private final Restaurant restaurant;
+
+    public RestaurantCard(Restaurant restaurant, Consumer<Restaurant> onClick) {
         super(10);
         this.getStyleClass().add("restaurantBox");
+        this.restaurant = restaurant;
+
+        setOnMouseClicked(e -> onClick.accept(restaurant));
 
         setUpImage(restaurant);
         setUpNameAndRating(restaurant);
