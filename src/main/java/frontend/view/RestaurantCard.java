@@ -1,22 +1,26 @@
-package frontend;
+package frontend.view;
 
 import backend.entities.Restaurant;
+import frontend.model.ImageHandler;
+import frontend.model.RestaurantHandler;
+import frontend.model.SceneHandler;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
 
 public class RestaurantCard extends VBox {
 
-    public RestaurantCard(Restaurant restaurant){
+    public RestaurantCard(Restaurant restaurant, Pane pane){
         super(10);
         this.getStyleClass().add("restaurantBox");
+        this.setOnMouseClicked(e -> {
+            RestaurantHandler.setCurrentRestaurant(restaurant);
+            SceneHandler.switchScene(pane, "restaurant-view.fxml");
+        });
 
         setUpImage(restaurant);
         setUpNameAndRating(restaurant);
