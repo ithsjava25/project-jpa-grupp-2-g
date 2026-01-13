@@ -25,16 +25,6 @@ public class MainController {
     @FXML
     private FlowPane restaurantContainer;
 
-    public Restaurant currentRestaurant;
-
-    public Restaurant getCurrentRestaurant() {
-        return currentRestaurant;
-    }
-
-    public void setCurrentRestaurant(Restaurant currentRestaurant) {
-        this.currentRestaurant = currentRestaurant;
-    }
-
     @FXML
     private void initialize() {
         if (appName != null) {
