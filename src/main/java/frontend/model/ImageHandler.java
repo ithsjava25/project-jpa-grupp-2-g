@@ -1,4 +1,4 @@
-package frontend;
+package frontend.model;
 
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
