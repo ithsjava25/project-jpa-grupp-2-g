@@ -75,5 +75,4 @@ public class DataSeeder {
             em.persist(table);
         }
     }
-
 }
