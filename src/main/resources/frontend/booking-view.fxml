@@ -6,7 +6,7 @@
 
 
 <VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.BookingController">
+      xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.BookingController">
 
     <Label fx:id="restaurantNameLabel"
            text="Restaurant"

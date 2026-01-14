@@ -47,6 +47,7 @@ public class ConnectionProvider {
 
             }
 
+
                 EMF = cfg.createEntityManagerFactory();
         } catch (Exception e) {
             throw new RuntimeException(e);

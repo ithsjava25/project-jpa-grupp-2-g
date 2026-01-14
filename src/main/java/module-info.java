@@ -16,4 +16,6 @@ module hellofx {
     opens backend.entities to org.hibernate.orm.core;
     opens frontend to javafx.fxml;
     exports frontend;
+    exports frontend.controller;
+    opens frontend.controller to javafx.fxml;
 }

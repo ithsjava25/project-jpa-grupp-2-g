@@ -5,7 +5,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: app_db
+      MYSQL_DATABASE: DineOut_Demo
       MYSQL_USER: grupp2
       MYSQL_PASSWORD: ${PASSWORD}
     ports:

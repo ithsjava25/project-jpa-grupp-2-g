@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="restaurantRoot" alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.RestaurantController">
+
+    <StackPane>
+       <Label fx:id="restaurantName"/>
+   </StackPane>
+
+</VBox>
