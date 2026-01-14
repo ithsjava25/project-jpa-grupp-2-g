@@ -73,9 +73,12 @@ public class BookingController {
                             "Date & Time: " + date + " at " + startTime + "\n" +
                             "Guests: " + guestsSpinner.getValue()
             );
+
             DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.lookup(".content.label").setStyle("-fx-text-fill: #CF6720; -fx-font-weight: bold; -fx-font-family: 'Agency FB'; -fx-font-size: 16px;"
-            );
+            var contentLabel = dialogPane.lookup(".content.label");
+            if (contentLabel != null) {
+                contentLabel.setStyle("-fx-text-fill: #CF6720; -fx-font-weight: bold; -fx-font-family: 'Agency FB'; -fx-font-size: 16px;");
+            }
 
             alert.showAndWait();
 
