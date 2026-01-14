@@ -41,7 +41,12 @@ public class BookingController {
         }
     }
 
-
+    /**
+     * Handles the book table button action.
+     *
+     * Reads user input from the form, validates required fields,
+     * creates a booking, and shows the result to the user.
+     */
     @FXML
     private void BookTable() {
         try {

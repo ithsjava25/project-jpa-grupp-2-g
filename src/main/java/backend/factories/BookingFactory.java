@@ -7,7 +7,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class BookingFactory {
-
+    /**
+     * Creates a booking for a restaurant.
+     *
+     * Checks that all required information is provided and valid.
+     * The booking always lasts for 2 hours starting from the given start time.
+     */
     public Booking createBooking(
         Restaurant restaurant,
         Customer customer,
