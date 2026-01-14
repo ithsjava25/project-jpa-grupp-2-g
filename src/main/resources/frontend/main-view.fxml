@@ -5,11 +5,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.geometry.Insets?>
-<VBox alignment="TOP_LEFT" fx:id="mainRoot" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.MainController">
+<VBox alignment="TOP_LEFT" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.MainController">
     <StackPane>
         <padding>
             <Insets top="15" bottom="10" left="20" right="20"/>
