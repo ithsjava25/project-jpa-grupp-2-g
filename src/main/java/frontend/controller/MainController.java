@@ -22,6 +22,8 @@ public class MainController {
     private TextField searchRestaurantField;
     @FXML
     private FlowPane restaurantContainer;
+    @FXML
+    private VBox mainArea;
 
     @FXML
     private void initialize() {
@@ -43,7 +45,7 @@ public class MainController {
     private void displayRestaurants(List<Restaurant> restaurants){
         restaurantContainer.getChildren().clear();
         for(Restaurant r : restaurants){
-            RestaurantCard restaurantCard = new RestaurantCard(r, restaurantContainer);
+            RestaurantCard restaurantCard = new RestaurantCard(r, mainArea);
             restaurantContainer.getChildren().add(restaurantCard);
         }
     }

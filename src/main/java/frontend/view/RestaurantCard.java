@@ -22,33 +22,20 @@ public class RestaurantCard extends VBox {
             SceneHandler.switchScene(pane, "restaurant-view.fxml");
         });
 
-        setUpImage(restaurant);
+        ImageView view = new ImageView();
+        view.setImage(ImageHandler.getRestaurantImage(restaurant));
+        ImageHandler.scaleAndCropImage(view, 150, 100);
+
+        //Rounds upper two corners of image, so it matches corners of VBox (container)
+        Rectangle clip = new Rectangle();
+        clip.widthProperty().bind(view.fitWidthProperty());
+        clip.heightProperty().bind(view.fitHeightProperty().add(50));
+        clip.setArcWidth(30);
+        clip.setArcHeight(30);
+
+        view.setClip(clip);
+        this.getChildren().add(view);
         setUpNameAndRating(restaurant);
-    }
-
-    private void setUpImage(Restaurant restaurant){
-        ImageView imageView = new ImageView();
-        String imagePath = "/images/" + restaurant.getImagePath();
-
-        try{
-            Image image = new Image(Objects.requireNonNull(RestaurantCard.class.getResourceAsStream(imagePath)));
-            imageView.setImage(image);
-            ImageHandler.scaleAndCropImage(imageView, 100, 150);
-
-            //Rounds upper two corners of image, so it matches corners of VBox (container)
-            Rectangle clip = new Rectangle();
-            clip.widthProperty().bind(imageView.fitWidthProperty());
-            clip.heightProperty().bind(imageView.fitHeightProperty().add(50));
-            clip.setArcWidth(30);
-            clip.setArcHeight(30);
-
-            imageView.setClip(clip);
-            this.getChildren().add(imageView);
-
-        } catch (Exception e) {
-            imageView.setImage(null);
-            System.out.println("Could not find: " + imagePath);
-        }
     }
 
     private void setUpNameAndRating(Restaurant restaurant){
