@@ -51,3 +51,4 @@ public class HeaderManager {
         helloController.getRootPane().setTop(header);
     }
 }
+
