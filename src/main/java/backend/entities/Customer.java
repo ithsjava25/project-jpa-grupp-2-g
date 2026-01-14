@@ -11,6 +11,8 @@ public class Customer {
 
     private String firstName;
     private String lastName;
+
+    @Column(unique = true, nullable = false)
     private String phoneNumber;
     private String email;
 
@@ -70,4 +72,5 @@ public class Customer {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }
