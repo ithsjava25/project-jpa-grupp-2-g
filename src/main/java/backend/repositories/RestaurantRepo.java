@@ -21,7 +21,6 @@ public class RestaurantRepo extends BaseRepo<Restaurant>{
         }
     }
 
-
     public Restaurant fetchRestaurantByName(String name) {
         return callInTransaction(em ->
             em.createQuery("""
@@ -31,6 +30,16 @@ public class RestaurantRepo extends BaseRepo<Restaurant>{
                 .setParameter("restaurant", name)
                 .getSingleResultOrNull());
 
+    }
+
+    public List<Restaurant> fetchRestaurantsByCategory(String name) {
+        return callInTransaction(em ->
+            em.createQuery("""
+            SELECT r FROM Restaurant r
+            WHERE r.category = :name
+        """, Restaurant.class)
+                .setParameter("name", name)
+                .getResultList());
     }
 
 }

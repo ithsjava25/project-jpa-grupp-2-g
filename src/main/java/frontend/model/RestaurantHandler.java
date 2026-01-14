@@ -17,13 +17,18 @@ public class RestaurantHandler {
         currentRestaurant = restaurant;
     }
 
-    public static List<Restaurant> getResturantList(String name){
+    public static List<Restaurant> getResturantList(String input){
         RestaurantRepo repo = new RestaurantRepo();
-        List<Restaurant> result = repo.findRestaurantsMatchingSearch(name);
 
-        if(result.isEmpty())
+        if(input.equalsIgnoreCase("All") || input.isEmpty()) {
             return repo.findRestaurantsMatchingSearch("");
-        else
-            return result;
+        }
+
+        List<Restaurant> byCategory = repo.fetchRestaurantsByCategory(input);
+        if(!byCategory.isEmpty()) {
+            return byCategory;
+        }
+
+        return repo.findRestaurantsMatchingSearch(input);
     }
 }
