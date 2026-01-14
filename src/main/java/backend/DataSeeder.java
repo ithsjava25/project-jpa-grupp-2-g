@@ -18,8 +18,9 @@ public class DataSeeder {
             List<Restaurant> restaurants = List.of(
                 new Restaurant("Pizzeria Napoli", "Pizza", "Storgatan 12", new BigDecimal("120.0"), 4.5, "pizzeriaNapoli.png"),
                 new Restaurant("Sushi Yama", "Sushi", "Kungsgatan 5", new BigDecimal("180.0"), 4.2, "sushiYama.png"),
-                new Restaurant("Burger House", "Hamburger", "Sveavägen 44", new BigDecimal("140.0"), 4.0, "burgerHouse.png"),
-                new Restaurant("Green Garden", "Vegetarian", "Odengatan 21", new BigDecimal("160.0"), 4.6, "greenGarden.png"),
+                new Restaurant("Burger Mansion", "Hamburger", "J Sigrid Edströms gata 10", new BigDecimal("170.0"), 4.0, "burgerMansion.png"),
+                new Restaurant("Bastard Burgers", "Hamburger", "Södra Larmgatan 11", new BigDecimal("200.0"), 4.2, "bastardBurgers.png"),
+                new Restaurant("The Elephant", "Vegetarian", "Linnégatan 68", new BigDecimal("250.0"), 4.1, "theElephant.png"),
                 new Restaurant("Curry Palace", "Indian", "Hornsgatan 88", new BigDecimal("150.0"), 4.3, "curryPalace.png"),
                 new Restaurant("TOSO", "Asian", "Götaplatsen 1", new BigDecimal("400.0"), 4.9, "toso.png"),
                 new Restaurant("Lilla Taverna", "Greek", "Olivedalsgatan 17", new BigDecimal("180.0"), 3.7, "lillaTaverna.png")
