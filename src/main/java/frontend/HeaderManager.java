@@ -32,7 +32,7 @@ public class HeaderManager {
         StackPane.setAlignment(backgroundImage, Pos.CENTER);
 
         // logotyp
-        ImageView logo = new ImageView(new Image(getClass().getResource("/images/logo.png").toExternalForm()));
+        ImageView logo = new ImageView(new Image(getClass().getResource("/images/Logo.png").toExternalForm()));
         logo.setPreserveRatio(true);
         logo.setFitHeight(400); // logotypens storlek
         StackPane.setAlignment(logo, Pos.CENTER); // positionerar logotypen i toppen till vänster
