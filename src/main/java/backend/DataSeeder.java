@@ -5,6 +5,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import java.math.BigDecimal;
 import java.util.List;
+/**
+ * Utility class for populating the database with initial test data.
+ *
+ * Adds sample restaurants, tables, and customers if they do not
+ * already exist in the database.
+ */
 
 public class DataSeeder {
 

@@ -42,6 +42,10 @@ public class BookingServiceTest {
             )
         );
 
+    /**
+     * Configures database connection properties
+     * before running the tests.
+     */
     @BeforeAll
     static void wireDbProperties() {
         System.setProperty("APP_JDBC_URL", mysql.getJdbcUrl());
@@ -51,6 +55,11 @@ public class BookingServiceTest {
 
     }
 
+    /**
+     * Verifies that the test database connection works.
+     *
+     * Also clears the Booking table before running other tests.
+     */
     @Test
     @Order(0)
     void testConnection() throws SQLException {

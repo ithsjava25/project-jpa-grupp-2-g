@@ -5,6 +5,12 @@ import backend.repositories.RestaurantRepo;
 
 import java.util.List;
 
+/**
+ * Helper class for handling restaurant selection and search.
+ *
+ * Stores the currently selected restaurant and provides
+ * search functionality.
+ */
 public class RestaurantHandler {
 
     private static Restaurant currentRestaurant;
