@@ -6,7 +6,12 @@ import backend.ConnectionProvider;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-
+/**
+ * Base repository class that provides common database operations.
+ *
+ * Handles basic CRUD operations and transaction management
+ * for any JPA entity.
+ */
 public abstract class BaseRepo<T> {
 
     public Class<T> entityClass;

@@ -13,7 +13,20 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * Service responsible for handling table bookings.
+ *
+ * Creates customers if needed, checks table availability,
+ * prevents double bookings, and saves the booking.
+ */
+
 public class BookingService {
+/**
+ * Books a table at a restaurant for a specific date and time.
+ *
+ * Validates input, finds an available table with enough capacity,
+ * prevents double bookings, creates the booking, and saves it.
+ */
 
     private final BookingRepo bookingRepo = new BookingRepo();
     private final DiningTableRepo diningTableRepo = new DiningTableRepo();
