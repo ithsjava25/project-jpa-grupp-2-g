@@ -12,7 +12,9 @@ import org.hibernate.jpa.HibernatePersistenceConfiguration;
  * It creates one centralized EntityManagerFactory that can be used in the whole program
  */
 public class ConnectionProvider {
-    private static final Dotenv env = Dotenv.configure().load();
+    private static final Dotenv env = Dotenv.configure()
+        .ignoreIfMissing()
+        .load();
     private static final PersistenceConfiguration cfg;
     private static final EntityManagerFactory EMF;
 
