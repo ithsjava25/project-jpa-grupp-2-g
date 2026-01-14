@@ -118,4 +118,20 @@ public class Booking {
             ", bookingEnd=" + bookingEnd +
             '}';
     }
+
+    public boolean equals(Booking booking) {
+        if(this.id.equals( booking.id)
+        && this.tableId.equals(booking.tableId)
+        && this.bookingStart.equals(booking.bookingStart)
+        && this.bookingEnd.equals(
+            booking.bookingEnd)
+            ){
+            return true;
+        }
+
+
+
+        return false;
+
+    }
 }

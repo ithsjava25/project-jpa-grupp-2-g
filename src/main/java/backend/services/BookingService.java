@@ -54,6 +54,7 @@ public class BookingService {
         );
 
 
+
 //-----Våran validering för att inte dubbelboka----
 
         List<DiningTable> candidateTables =      //Lista över alla "passande" bord som kan hålla antal gäster.
