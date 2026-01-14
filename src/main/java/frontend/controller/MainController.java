@@ -17,8 +17,6 @@ public class MainController {
     private final AppHandler model = new AppHandler();
 
     @FXML
-    private Pane mainRoot;
-    @FXML
     private Label appName;
     @FXML
     private TextField searchRestaurantField;
@@ -45,7 +43,7 @@ public class MainController {
     private void displayRestaurants(List<Restaurant> restaurants){
         restaurantContainer.getChildren().clear();
         for(Restaurant r : restaurants){
-            RestaurantCard restaurantCard = new RestaurantCard(r, mainRoot);
+            RestaurantCard restaurantCard = new RestaurantCard(r, restaurantContainer);
             restaurantContainer.getChildren().add(restaurantCard);
         }
     }
