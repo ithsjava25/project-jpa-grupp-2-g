@@ -20,7 +20,9 @@ public class Restaurant {
     @Column(name = "mean_price")
     private BigDecimal meanPrice;
 
+    @Column(unique = true)
     private String name;
+
     private String category;
     private String address;
     private double rating;

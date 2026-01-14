@@ -3,6 +3,9 @@ package backend.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "DiningTable", uniqueConstraints = {
+    @UniqueConstraint(name = "uq_diningtable", columnNames = {"restaurant_id", "table_number"})
+})
 public class DiningTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
