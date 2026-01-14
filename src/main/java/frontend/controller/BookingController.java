@@ -3,6 +3,7 @@ package frontend.controller;
 import backend.entities.Booking;
 import backend.entities.Restaurant;
 import backend.services.BookingService;
+import frontend.model.RestaurantHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -12,9 +13,7 @@ import java.time.LocalTime;
 public class BookingController {
 
     private final BookingService bookingService = new BookingService();
-    private Restaurant restaurant;
-
-    @FXML private Label restaurantNameLabel;
+    private Restaurant restaurant = RestaurantHandler.getCurrentRestaurant();
 
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
@@ -27,12 +26,6 @@ public class BookingController {
 
 
     @FXML private Label statusLabel;
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-        restaurantNameLabel.setText(restaurant.getName());
-    }
-
 
     @FXML
     private void initialize() {
@@ -82,4 +75,8 @@ public class BookingController {
             statusLabel.setText(e.getMessage());
         }
     }
+
+//    public void setRestaurant(Restaurant restaurant) {
+//        this.restaurant = restaurant;
+//    }
 }

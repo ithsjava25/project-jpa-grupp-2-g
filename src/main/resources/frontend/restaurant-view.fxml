@@ -3,10 +3,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="restaurantRoot" alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.RestaurantController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<HBox fx:id="restaurantPageRoot" alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.RestaurantController">
+    <VBox>
+        <padding>
+            <Insets top="15" bottom="10" left="40" right="20"/>
+        </padding>
 
-    <StackPane>
-       <Label fx:id="restaurantName"/>
-   </StackPane>
+        <HBox alignment="BASELINE_LEFT">
+            <Label fx:id="restaurantName" styleClass="restaurantPage-Header"/>
+            <Label fx:id="ratingIcon" styleClass="restaurantPage-Icon"/>
+            <Label fx:id="restaurantRating" styleClass="restaurantPage-Info"/>
+        </HBox>
 
-</VBox>
+        <HBox fx:id="categoryAndPrice">
+            <Label fx:id="categoryIcon" styleClass="restaurantPage-Icon"/>
+            <Label fx:id="restaurantCategory" styleClass="restaurantPage-Info"/>
+            <Label fx:id="meanPriceIcon" styleClass="restaurantPage-Icon"/>
+            <Label fx:id="restaurantMeanPrice" styleClass="restaurantPage-Info"/>
+            <Label fx:id="adressIcon" styleClass="restaurantPage-Icon"/>
+            <Label fx:id="restaurantAdress" styleClass="restaurantPage-Info"/>
+        </HBox>
+
+        <VBox fx:id="imageContainer">
+            <ImageView fx:id="restaurantImage" preserveRatio="true" />
+        </VBox>
+
+    </VBox>
+
+    <Pane HBox.hgrow="ALWAYS" />
+
+    <fx:include source="booking-form.fxml"/>
+
+</HBox>

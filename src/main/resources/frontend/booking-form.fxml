@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.BookingController">
+    <padding>
+        <Insets top="15" bottom="10" left="20" right="40"/>
+    </padding>
+
+    <Label fx:id="statusLabel"/>
+    <Label text="Book a table:" styleClass="bookingForm-Header"/>
+
+    <VBox styleClass="bookingForm-Textfield">
+        <TextField fx:id="firstNameField" promptText="First name"/>
+        <TextField fx:id="lastNameField" promptText="Last name"/>
+        <TextField fx:id="phoneField" promptText="Phone number"/>
+        <TextField fx:id="emailField" promptText="Email"/>
+    </VBox>
+
+
+    <HBox>
+        <VBox styleClass="bookingForm-Labels">
+            <Label text="Guests"/>
+            <Label text="Date"/>
+            <Label text="Start time"/>
+        </VBox>
+
+        <VBox styleClass="bookingForm-Choice">
+            <Spinner fx:id="guestsSpinner" prefWidth="50" styleClass="bookingForm-ChoiceBox"/>
+            <DatePicker fx:id="datePicker" styleClass="bookingForm-ChoiceBox"/>
+            <ComboBox fx:id="startTimeBox" prefWidth="100" styleClass="bookingForm-ChoiceBox"/>
+        </VBox>
+    </HBox>
+
+    <VBox alignment="CENTER">
+        <Button text="Book" onAction="#BookTable" prefWidth="100" styleClass="bookingForm-Button"/>
+    </VBox>
+
+</VBox>

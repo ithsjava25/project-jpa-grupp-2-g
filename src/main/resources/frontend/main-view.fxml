@@ -19,11 +19,15 @@
             <TextField fx:id="searchRestaurantField" prefWidth="200" onAction="#handleRestaurantSearch" />
         </HBox>
     </StackPane>
-    <ScrollPane fitToWidth="true" prefHeight="300">
-        <FlowPane fx:id="restaurantContainer" hgap="15" vgap="15">
-            <padding>
-                <Insets top="20" bottom="20" left="10" right="10"/>
-            </padding>
-        </FlowPane>
+
+    <ScrollPane fitToWidth="true">
+        <VBox fx:id="mainArea">
+            <FlowPane fx:id="restaurantContainer" hgap="15" vgap="15">
+                <padding>
+                    <Insets top="20" bottom="20" left="10" right="10"/>
+                </padding>
+            </FlowPane>
+        </VBox>
     </ScrollPane>
+
 </VBox>
