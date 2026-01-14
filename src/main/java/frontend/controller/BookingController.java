@@ -1,4 +1,4 @@
-package frontend;
+package frontend.controller;
 
 import backend.entities.Booking;
 import backend.entities.Restaurant;
