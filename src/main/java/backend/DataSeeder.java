@@ -45,7 +45,6 @@ public class DataSeeder {
             );
 
             for (Customer c : customers) {
-                // Vi använder telefonnummer som unik identifierare vid seedning
                 Long count = em.createQuery("SELECT COUNT(c) FROM Customer c WHERE c.phoneNumber = :phone", Long.class)
                     .setParameter("phone", c.getPhoneNumber())
                     .getSingleResult();
@@ -61,16 +60,6 @@ public class DataSeeder {
             e.printStackTrace();
         } finally {
             em.close();
-        }
-    }
-
-    private static void seedCustomerIfMissing(EntityManager em, String fName, String lName, String phone, String email) {
-        Long count = em.createQuery("SELECT COUNT(c) FROM Customer c WHERE c.phoneNumber = :phone", Long.class)
-            .setParameter("phone", phone)
-            .getSingleResult();
-
-        if (count == 0) {
-            em.persist(new Customer(fName, lName, phone, email));
         }
     }
 
