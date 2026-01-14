@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+
+<VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.BookingController">
+
+    <Label fx:id="restaurantNameLabel"
+           text="Restaurant"
+           style="-fx-font-size: 20px; -fx-font-weight: Agency FB;" />
+
+    <Label fx:id="statusLabel"/>
+
+    <VBox spacing="8">
+        <Label text="Booking details:" style="-fx-font-size: 15px; -fx-font-weight: Agency FB;"/>
+
+        <TextField fx:id="firstNameField" promptText="First name"/>
+        <TextField fx:id="lastNameField" promptText="Last name"/>
+        <TextField fx:id="phoneField" promptText="Phone number"/>
+        <TextField fx:id="emailField" promptText="Email"/>
+    </VBox>
+
+
+    <VBox spacing="8">
+        <HBox spacing="10">
+            <Label text="Guests"/>
+            <Spinner fx:id="guestsSpinner" prefWidth="50"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Date"/>
+            <DatePicker fx:id="datePicker"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Start time"/>
+            <ComboBox fx:id="startTimeBox" prefWidth="100"/>
+        </HBox>
+    </VBox>
+
+
+    <Button text="Book"
+            onAction="#BookTable"
+            prefWidth="150"/>
+</VBox>

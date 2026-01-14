@@ -23,16 +23,15 @@ public class DiningTableRepo extends BaseRepo<DiningTable> {
     }
 
     public List<DiningTable> fetchByRestaurantAndCapacity(
-        String restaurantName, int numberOfGuests) {
+        Restaurant restaurant, int numberOfGuests) {
         return callInTransaction(em ->
             em.createQuery("""
             SELECT t FROM DiningTable t
-                JOIN t.restaurant r
-            WHERE r.name = :restaurantName
+            WHERE t.restaurant = :restaurant
               AND t.seatCapacity >= :numberOfGuests
             ORDER BY t.seatCapacity
         """, DiningTable.class)
-                .setParameter("restaurantName", restaurantName)
+                .setParameter("restaurant", restaurant)
                 .setParameter("numberOfGuests", numberOfGuests)
                 .getResultList());
     }

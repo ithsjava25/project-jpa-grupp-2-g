@@ -22,8 +22,8 @@ public class BookingService {
     private final RestaurantRepo restaurantRepo = new RestaurantRepo();
 
 
-    public void bookTable(
-        String restaurantName,
+    public Booking bookTable(
+        Restaurant restaurant,
         String firstName,
         String lastName,
         String email,
@@ -34,7 +34,7 @@ public class BookingService {
         LocalDate date) {
 
 
-        if (restaurantName == null)
+        if (restaurant == null)
             throw new IllegalArgumentException("Restaurant is required");
 
         if (numberOfGuests <= 0)
@@ -53,13 +53,12 @@ public class BookingService {
             email
         );
 
-        Restaurant restaurant = restaurantRepo.fetchRestaurantByName(restaurantName);
 
 //-----Våran validering för att inte dubbelboka----
 
         List<DiningTable> candidateTables =      //Lista över alla "passande" bord som kan hålla antal gäster.
             diningTableRepo.fetchByRestaurantAndCapacity(
-                restaurantName, numberOfGuests
+                restaurant, numberOfGuests
             );
 
         if (candidateTables.isEmpty())
@@ -113,6 +112,7 @@ public class BookingService {
 
 
         bookingRepo.add(booking);
+        return booking;
 
     }
 
