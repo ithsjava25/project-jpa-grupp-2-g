@@ -3,6 +3,7 @@
     -fx-font-size: 15;
 }
 
+/*Restaurant Card*/
 .restaurantBox{
     -fx-background-color: white;
     -fx-background-radius: 15;
@@ -11,16 +12,56 @@
     /* Gives a small shadow behind the cards */
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
 }
-
 .restaurantBox:hover{
     -fx-scale-x: 1.15;
     -fx-scale-y: 1.15;
     -fx-cursor: hand;
 }
-
 .restaurantBox .label{
     -fx-padding: 10;
     -fx-font-family: "Agency FB";
     -fx-font-size: 16;
 }
+
+/*Restaurant Page*/
+.restaurantPage-Header{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 32px;
+    -fx-text-fill: #1a1a1a;
+    -fx-padding: 0 0 10 0;
+}
+.restaurantPage-Info{
+    -fx-font-family: "Verdana";
+    -fx-font-size: 12px;
+    -fx-text-fill: #1a1a1a;
+    -fx-padding: 8 10 7 5;
+}
+.restaurantPage-Icon{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-padding: 8 0 10 0;
+}
+
+/*Booking Form*/
+.bookingForm-Header{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 20px;
+    -fx-padding: 0 0 10 0;
+}
+.bookingForm-Info{
+    -fx-font-family: "Verdana";
+    -fx-spacing: 10;
+}
+.bookingForm-Choice{
+    -fx-font-family: "Verdana";
+    -fx-spacing: 10;
+    -fx-padding: 15 0 15 0;
+}
+.bookingForm-Button{
+    -fx-alignment: center;
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: black;
+}
+
 

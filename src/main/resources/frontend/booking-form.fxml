@@ -3,20 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.BookingController">
+    <padding>
+        <Insets top="15" bottom="10" left="20" right="20"/>
+    </padding>
 
+    <Label text="Book a table:" styleClass="bookingForm-Header"/>
 
-<VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.BookingController">
-
-    <Label fx:id="restaurantNameLabel"
-           text="Restaurant"
-           style="-fx-font-size: 20px; -fx-font-weight: Agency FB;" />
-
-    <Label fx:id="statusLabel"/>
-
-    <VBox spacing="8">
-        <Label text="Booking details:" style="-fx-font-size: 15px; -fx-font-weight: Agency FB;"/>
-
+    <VBox styleClass="bookingForm-Info">
         <TextField fx:id="firstNameField" promptText="First name"/>
         <TextField fx:id="lastNameField" promptText="Last name"/>
         <TextField fx:id="phoneField" promptText="Phone number"/>
@@ -24,7 +19,7 @@
     </VBox>
 
 
-    <VBox spacing="8">
+    <VBox styleClass="bookingForm-Choice">
         <HBox spacing="10">
             <Label text="Guests"/>
             <Spinner fx:id="guestsSpinner" prefWidth="50"/>
@@ -41,8 +36,8 @@
         </HBox>
     </VBox>
 
+    <VBox alignment="CENTER">
+        <Button text="Book" onAction="#BookTable" prefWidth="100" styleClass="bookingForm-Button"/>
+    </VBox>
 
-    <Button text="Book"
-            onAction="#BookTable"
-            prefWidth="150"/>
 </VBox>

@@ -14,8 +14,6 @@ public class BookingController {
     private final BookingService bookingService = new BookingService();
     private Restaurant restaurant;
 
-    @FXML private Label restaurantNameLabel;
-
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
     @FXML private TextField phoneField;
@@ -27,12 +25,6 @@ public class BookingController {
 
 
     @FXML private Label statusLabel;
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-        restaurantNameLabel.setText(restaurant.getName());
-    }
-
 
     @FXML
     private void initialize() {
@@ -81,5 +73,9 @@ public class BookingController {
         } catch (Exception e) {
             statusLabel.setText(e.getMessage());
         }
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }
