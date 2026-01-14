@@ -12,6 +12,16 @@
     -fx-fit-width: 150px;
 }
 
+/* Category */
+.category-button {
+    -fx-background-color: #FF8C00;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
 /*Restaurant Card*/
 .restaurantBox{
     -fx-background-color: white;
