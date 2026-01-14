@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
-public class HelloController {
+public class CategoryController {
 
     private final HelloModel model = new HelloModel();
 

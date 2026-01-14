@@ -7,9 +7,9 @@ import javafx.geometry.Pos;
 
 public class CategoryManager {
 
-    private final HelloController helloController;
+    private final CategoryController helloController;
 
-    public CategoryManager(HelloController helloController) {
+    public CategoryManager(CategoryController helloController) {
         this.helloController = helloController;
     }
 
