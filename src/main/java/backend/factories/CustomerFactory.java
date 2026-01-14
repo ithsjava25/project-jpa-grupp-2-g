@@ -4,6 +4,12 @@ import backend.entities.Customer;
 
 public class CustomerFactory {
 
+/**
+ * Creates a new customer.
+ *
+ * Validates the customer's name, phone number, and email address
+ * before creating the customer.
+ */
     public Customer createCustomer(
         String firstName,
         String lastName,

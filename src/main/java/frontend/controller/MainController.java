@@ -35,6 +35,13 @@ public class MainController {
         displayRestaurants(allRestaurants);
     }
 
+
+    /**
+     * Handles restaurant search input.
+     *
+     * Searches for restaurants based on the user's input
+     * and updates the displayed list.
+     */
     @FXML
     public void handleRestaurantSearch(ActionEvent event){
         String restaurant = searchRestaurantField.getText();
@@ -42,6 +49,12 @@ public class MainController {
         displayRestaurants(restaurantList);
     }
 
+
+    /**
+     * Displays a list of restaurants in the UI.
+     *
+     * Clears the current view and adds a card for each restaurant.
+     */
     private void displayRestaurants(List<Restaurant> restaurants){
         restaurantContainer.getChildren().clear();
         for(Restaurant r : restaurants){
