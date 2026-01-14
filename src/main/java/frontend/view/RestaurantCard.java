@@ -24,7 +24,7 @@ public class RestaurantCard extends VBox {
 
         ImageView view = new ImageView();
         view.setImage(ImageHandler.getRestaurantImage(restaurant));
-        ImageHandler.scaleAndCropImage(view, 100, 150);
+        ImageHandler.scaleAndCropImage(view, 150, 100);
 
         //Rounds upper two corners of image, so it matches corners of VBox (container)
         Rectangle clip = new Rectangle();

@@ -56,7 +56,7 @@ public class RestaurantController {
         ratingIcon.setText("⭐ ");
         restaurantRating.setText(String.valueOf(restaurant.getRating()));
         restaurantImage.setImage(ImageHandler.getRestaurantImage(restaurant));
-        ImageHandler.scaleAndCropImage(restaurantImage, 250, 350);
+        ImageHandler.scaleAndCropImage(restaurantImage, 350, 250);
     }
 
 }

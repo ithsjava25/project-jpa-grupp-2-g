@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.Objects;
 
 public class ImageHandler {
-    public static void scaleAndCropImage(ImageView imageView, double targetHeight, double targetWidth){
+    public static void scaleAndCropImage(ImageView imageView, double targetWidth, double targetHeight){
         Image image = imageView.getImage();
 
         double width = image.getWidth();
