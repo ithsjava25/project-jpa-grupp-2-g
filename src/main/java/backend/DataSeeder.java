@@ -4,6 +4,7 @@ import backend.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import java.math.BigDecimal;
+import java.time.LocalTime;
 import java.util.List;
 
 public class DataSeeder {
@@ -35,6 +36,11 @@ public class DataSeeder {
                     em.persist(r);
                     seedTablesForRestaurant(em, r);
                 }
+
+                if (count == 0) {
+                    em.persist(r);
+                    seedOpeningHoursForRestaurant(em, r);
+                }
             }
 
             List<Customer> customers = List.of(
@@ -61,6 +67,24 @@ public class DataSeeder {
             e.printStackTrace();
         } finally {
             em.close();
+        }
+    }
+
+    private static void seedOpeningHoursForRestaurant(EntityManager em, Restaurant restaurant) {
+        for (OpeningHours.Weekday day : OpeningHours.Weekday.values()) {
+            LocalTime open = LocalTime.of(11, 0);
+            LocalTime close = LocalTime.of(22, 0);
+
+            if (day == OpeningHours.Weekday.FRIDAY || day == OpeningHours.Weekday.SATURDAY) {
+                close = LocalTime.of(23, 30);
+            }
+
+            if (day == OpeningHours.Weekday.SUNDAY) {
+                open = LocalTime.of(12, 0);
+            }
+
+            OpeningHours oh = new OpeningHours(day, open, close);
+            em.persist(oh);
         }
     }
 

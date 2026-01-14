@@ -18,7 +18,7 @@ public class ConnectionProvider {
 
     static{
         try{
-            if(env.get("TEST").equals("TRUE")){
+            if("TRUE".equals(env.get("TEST"))){
 
                 cfg = new HibernatePersistenceConfiguration("persistence")
                     .jdbcUrl("jdbc:mysql://localhost:3307/testdb")
@@ -61,7 +61,5 @@ public class ConnectionProvider {
     public static EntityManagerFactory getEMF() {
         return EMF;
     }
-
-
 }
 

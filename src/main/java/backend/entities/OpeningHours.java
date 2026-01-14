@@ -20,8 +20,7 @@ public class OpeningHours {
     @Column(name = "closing_time")
     private LocalTime closingTime;
 
-    public OpeningHours(Long id, Weekday weekday, LocalTime openingTime, LocalTime closingTime) {
-        this.id = id;
+    public OpeningHours(Weekday weekday, LocalTime openingTime, LocalTime closingTime) {
         this.weekday = weekday;
         this.openingTime = openingTime;
         this.closingTime = closingTime;
@@ -69,7 +68,7 @@ public class OpeningHours {
             '}';
     }
 
-    enum Weekday{
+    public enum Weekday{
         MONDAY,
         TUESDAY,
         WEDNESDAY,
