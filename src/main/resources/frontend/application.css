@@ -1,6 +1,15 @@
-#appName{
-    -fx-font-family: "Agency FB";
-    -fx-font-size: 15;
+/*Header*/
+.main-header {
+    -fx-background-image: url("../images/header.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-height: 150px;
+    -fx-max-height: 150px;
+}
+#appLogo{
+    -fx-fit-height: 150px;
+    -fx-fit-width: 150px;
 }
 
 /*Restaurant Card*/

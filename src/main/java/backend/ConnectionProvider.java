@@ -34,7 +34,7 @@ public class ConnectionProvider {
             }
             else{
                 cfg = new HibernatePersistenceConfiguration("persistence")
-                    .jdbcUrl("jdbc:mysql://localhost:3306/app_db?createDatabaseIfNotExist=true")
+                    .jdbcUrl("jdbc:mysql://localhost:3306/DineOut_Demo?createDatabaseIfNotExist=true")
                     .jdbcUsername("grupp2")
                     .jdbcPassword(env.get("PASSWORD"))
                     .property("hibernate.connection.provider_class", "org.hibernate.hikaricp.internal.HikariCPConnectionProvider")

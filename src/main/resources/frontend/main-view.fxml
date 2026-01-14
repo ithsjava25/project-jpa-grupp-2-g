@@ -8,15 +8,25 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox alignment="TOP_LEFT" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.controller.MainController">
-    <StackPane>
+    <StackPane fx:id="header" styleClass="main-header">
+
+        <ImageView fx:id="appLogo" StackPane.alignment="TOP_LEFT">
+            <image>
+                <Image url="@../images/logo.png" />
+            </image>
+        </ImageView>
+
         <padding>
             <Insets top="15" bottom="10" left="20" right="20"/>
         </padding>
+
         <Label fx:id="appName" StackPane.alignment="CENTER_LEFT" />
+
         <HBox fx:id="searchRestaurantBox" alignment="CENTER" StackPane.alignment="CENTER">
-            <Label text="Search for a restaurant: " />
-            <TextField fx:id="searchRestaurantField" prefWidth="200" onAction="#handleRestaurantSearch" />
+            <TextField fx:id="searchRestaurantField" promptText="Search for a restaurant: " prefWidth="200" onAction="#handleRestaurantSearch" />
         </HBox>
     </StackPane>
 
