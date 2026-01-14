@@ -1,5 +1,6 @@
 #appName{
-    -fx-text-fill: blue;
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 15;
 }
 
 .restaurantBox{
@@ -9,6 +10,12 @@
 
     /* Gives a small shadow behind the cards */
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.restaurantBox:hover{
+    -fx-scale-x: 1.15;
+    -fx-scale-y: 1.15;
+    -fx-cursor: hand;
 }
 
 .restaurantBox .label{

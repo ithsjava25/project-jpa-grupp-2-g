@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.ConnectionProvider;
+import backend.DataSeeder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +14,7 @@ public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloFX.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloFX.class.getResource("main-view.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 640, 480);
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -22,6 +24,8 @@ public class HelloFX extends Application {
     }
 
     public static void main(String[] args) {
+        ConnectionProvider.initialize();
+        DataSeeder.populateDatabase();
         launch();
     }
 
