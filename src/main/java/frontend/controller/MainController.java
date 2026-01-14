@@ -47,7 +47,6 @@ public class MainController {
 
     /**
      * Displays a list of restaurants in the UI.
-     *
      * Clears the current view and adds a card for each restaurant.
      */
     private void displayRestaurants(List<Restaurant> restaurants){

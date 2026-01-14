@@ -16,7 +16,7 @@ public class HelloFX extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloFX.class.getResource("main-view.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 680, 500);
+        Scene scene = new Scene(root, 700, 500);
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         stage.setTitle("Restaurangbokningar");
         stage.setScene(scene);

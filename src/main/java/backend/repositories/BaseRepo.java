@@ -81,6 +81,13 @@ public abstract class BaseRepo<T> {
         });
     }
 
+    public void deleteAll() {
+        executeInTransaction(em -> {
+            String query = "DELETE FROM " + entityClass.getSimpleName();
+            em.createQuery(query).executeUpdate();
+        });
+    }
+
     public List<T> findAll(){
         try(EntityManager em = emf.createEntityManager()) {
             String query = "Select e from " + entityClass.getName() + " e";

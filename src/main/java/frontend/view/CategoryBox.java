@@ -15,6 +15,16 @@ import java.util.Set;
 
 public class CategoryBox extends Button{
 
+    /**
+     * Custom button representing a restaurant category.
+     * <p>
+     * Initializes the button with a label and a CSS class, and sets an
+     * action to trigger filtering in the provided {@code MainController}.
+     * </p>
+     *
+     * @param categoryName the name of the category to display and filter by.
+     * @param controller   the controller used to handle the filtering logic.
+     */
     public CategoryBox(String categoryName, MainController controller) {
         super(categoryName);
         this.getStyleClass().add("category-button");
@@ -24,6 +34,17 @@ public class CategoryBox extends Button{
         });
     }
 
+    /**
+     * Dynamically generates and displays category filter buttons.
+     * <p>
+     * Extracts unique categories from all restaurants, creates a
+     * {@link CategoryBox} for each, and places them inside an {@code HBox}
+     * at the center of the provided {@code BorderPane}.
+     * </p>
+     *
+     * @param rootPane   the container where the button row will be placed.
+     * @param controller the controller that will handle the button actions.
+     */
     public static void setupCategoryButtons(BorderPane rootPane, MainController controller) {
         List<Restaurant> allRestaurants = RestaurantHandler.getResturantList("");
         Set<String> uniqueCategories = new HashSet<>();

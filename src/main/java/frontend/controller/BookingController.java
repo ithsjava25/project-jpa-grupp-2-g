@@ -34,6 +34,13 @@ public class BookingController {
         }
     }
 
+    /**
+     * Processes a new table booking.
+     * Validates form input, creates a booking via {@code bookingService},
+     * shows a confirmation alert, and resets the form fields on success.
+     * Displays error messages in {@code statusLabel} if validation or
+     * service calls fail.
+     */
     @FXML
     private void BookTable() {
         try {
@@ -42,8 +49,9 @@ public class BookingController {
 
             if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() ||
                     date == null || startTime == null) {
-                statusLabel.setText("Please fill in all required fields");
-                statusLabel.setStyle("-fx-text-fill: red;");
+                //Todo: create box that prints why error occurred
+//                statusLabel.setText("Please fill in all required fields");
+//                statusLabel.setStyle("-fx-text-fill: red;");
                 return;
             }
 
@@ -61,14 +69,11 @@ public class BookingController {
                     date
             );
 
-            statusLabel.setText("Booking confirmed! ID: " + booking.getId());
-            statusLabel.setStyle("-fx-text-fill: green;");
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Booking confirmed");
             alert.setHeaderText(null);
             alert.setContentText(
-                    "Booking confirmed for " + firstNameField.getText() + " " + lastNameField.getText() + "\n" +
+                    "Booking confirmed for: " + firstNameField.getText() + " " + lastNameField.getText() + "\n" +
                             "Restaurant: " + restaurant.getName() + "\n" +
                             "Date & Time: " + date + " at " + startTime + "\n" +
                             "Guests: " + guestsSpinner.getValue()

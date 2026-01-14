@@ -23,6 +23,16 @@ public class RestaurantHandler {
         currentRestaurant = restaurant;
     }
 
+    /**
+     * Retrieves a list of restaurants based on a search string or category.
+     * <p>
+     * If the input is "All" or empty, it returns all restaurants.
+     * Otherwise, it first attempts to find matches by category,
+     * falling back to a name-based search if no category match is found.
+     * </p>
+     * * @param input the search term or category name.
+     * @return a {@link List} of matching {@link Restaurant} objects.
+     */
     public static List<Restaurant> getResturantList(String input){
         RestaurantRepo repo = new RestaurantRepo();
 

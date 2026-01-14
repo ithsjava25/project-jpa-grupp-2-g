@@ -10,6 +10,17 @@ import javafx.scene.shape.Rectangle;
 import java.util.Objects;
 
 public class ImageHandler {
+
+    /**
+     * Scales and crops an image within an {@code ImageView} to fit specific dimensions.
+     * <p>
+     * This method calculates a centered viewport based on the target aspect ratio,
+     * effectively performing a "center-crop"
+     * </p>
+     * * @param imageView    the view containing the image to be adjusted.
+     * @param targetWidth  the desired width of the view.
+     * @param targetHeight the desired height of the view.
+     */
     public static void scaleAndCropImage(ImageView imageView, double targetWidth, double targetHeight){
         Image image = imageView.getImage();
 
@@ -32,6 +43,14 @@ public class ImageHandler {
         imageView.setSmooth(true);
     }
 
+    /**
+     * Retrieves the image associated with a specific restaurant.
+     * The method constructs a full resource path using the base directory "/images/"
+     *
+     * @param restaurant the restaurant entity containing the image filename.
+     * @return an {@link Image} object if the resource is found,
+     * or {@code null} if the path is invalid or the file is missing.
+     */
     public static Image getRestaurantImage(Restaurant restaurant) {
         String imagePath = "/images/" + restaurant.getImagePath();
         try {
