@@ -18,7 +18,7 @@ CREATE TABLE Booking
 );
 CREATE TABLE Customer
 (
-    customerId     bigint AUTO_INCREMENT PRIMARY KEY AUTO_INCREMENT,
+    customerId     bigint AUTO_INCREMENT PRIMARY KEY,
     email     VARCHAR(255),
     firstName    VARCHAR(255),
     lastName VARCHAR(255),

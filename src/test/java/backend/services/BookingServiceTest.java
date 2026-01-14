@@ -40,7 +40,7 @@ public class BookingServiceTest {
                     new ExposedPort(3306)           // CONTAINER PORT
                 )
             )
-        );;
+        );
 
     @BeforeAll
     static void wireDbProperties() {
