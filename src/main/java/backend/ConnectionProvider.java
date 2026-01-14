@@ -19,7 +19,7 @@ public class ConnectionProvider {
     static{
         try{
             cfg = new HibernatePersistenceConfiguration("persistence")
-                .jdbcUrl("jdbc:mysql://localhost:3306/app_db?createDatabaseIfNotExist=true")
+                .jdbcUrl("jdbc:mysql://localhost:3306/DineOut_Demo?createDatabaseIfNotExist=true")
                 .jdbcUsername("grupp2")
                 .jdbcPassword(env.get("PASSWORD"))
                 .property("hibernate.connection.provider_class", "org.hibernate.hikaricp.internal.HikariCPConnectionProvider")
@@ -29,6 +29,7 @@ public class ConnectionProvider {
                 .property("hibernate.format_sql", "true")
                 .property("hibernate.highlight_sql", "true")
                 .managedClasses(Booking.class, Customer.class, DiningTable.class, OpeningHours.class, Restaurant.class);
+
 
                 EMF = cfg.createEntityManagerFactory();
         } catch (Exception e) {
