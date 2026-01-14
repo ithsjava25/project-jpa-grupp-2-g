@@ -36,7 +36,24 @@ public class DataSeeder {
                 }
             }
 
-            seedCustomerIfMissing(em, "Anna", "Svensson", "0701111111", "anna@mail.se");
+            List<Customer> customers = List.of(
+                new Customer("Anna", "Svensson", "0701111111", "anna@mail.se"),
+                new Customer("Erik", "Larsson", "0702222222", "erik@mail.se"),
+                new Customer("Sara", "Nilsson", "0703333333", "sara@mail.se"),
+                new Customer("Johan", "Karlsson", "0704444444", "johan@mail.se"),
+                new Customer("Emma", "Andersson", "0705555555", "emma@mail.se")
+            );
+
+            for (Customer c : customers) {
+                // Vi använder telefonnummer som unik identifierare vid seedning
+                Long count = em.createQuery("SELECT COUNT(c) FROM Customer c WHERE c.phoneNumber = :phone", Long.class)
+                    .setParameter("phone", c.getPhoneNumber())
+                    .getSingleResult();
+
+                if (count == 0) {
+                    em.persist(c);
+                }
+            }
 
             tx.commit();
         } catch (Exception e) {
