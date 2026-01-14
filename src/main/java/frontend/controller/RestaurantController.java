@@ -1,16 +1,12 @@
 package frontend.controller;
 
-
-import backend.entities.Booking;
 import backend.entities.Restaurant;
-import backend.services.BookingService;
+import frontend.model.ImageHandler;
 import frontend.model.RestaurantHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class RestaurantController {
     @FXML
@@ -33,6 +29,8 @@ public class RestaurantController {
     private Label ratingIcon;
     @FXML
     private Label restaurantRating;
+    @FXML
+    private ImageView restaurantImage;
 
     private Restaurant restaurant;
 
@@ -57,6 +55,8 @@ public class RestaurantController {
         restaurantMeanPrice.setText(restaurant.getMeanPrice().toString() + " kr");
         ratingIcon.setText("⭐ ");
         restaurantRating.setText(String.valueOf(restaurant.getRating()));
+        restaurantImage.setImage(ImageHandler.getRestaurantImage(restaurant));
+        ImageHandler.scaleAndCropImage(restaurantImage, 250, 350);
     }
 
 }
