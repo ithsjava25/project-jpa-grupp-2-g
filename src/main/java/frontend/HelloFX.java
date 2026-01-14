@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.ConnectionProvider;
+import backend.DataSeeder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,6 +24,8 @@ public class HelloFX extends Application {
     }
 
     public static void main(String[] args) {
+        ConnectionProvider.initialize();
+        DataSeeder.populateDatabase();
         launch();
     }
 
