@@ -9,9 +9,9 @@ import javafx.scene.layout.*;
 
 public class HeaderManager {
 
-    private final HelloController helloController;
+    private final CategoryController helloController;
 
-    public HeaderManager(HelloController helloController) {
+    public HeaderManager(CategoryController helloController) {
         this.helloController = helloController;
     }
 
