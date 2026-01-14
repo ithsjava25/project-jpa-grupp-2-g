@@ -9,10 +9,15 @@ public class CustomerFactory {
     private final CustomerRepo repo = new CustomerRepo();
     private final CustomerService service = new CustomerService();
 
-    public void createCustomer(String name, String lastName, String phoneNumber, String email){
-        if(service.validateName(name) && service.validateName(lastName) &&
-            service.validatePhoneNumber(phoneNumber) && service.validateEmail(email)){
-            Customer customer = new Customer(name, lastName, phoneNumber, email);
+    public void createCustomer(String name, String lastName, String phoneNumber, String email) {
+
+        if (service.validateName(name)
+                && service.validateName(lastName)
+                && service.validatePhoneNumber(phoneNumber)
+                && service.validateEmail(email)) {
+
+            Customer customer = new Customer(name, lastName, phoneNumber);
+
             repo.add(customer);
         }
     }

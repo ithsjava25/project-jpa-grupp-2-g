@@ -1,6 +1,9 @@
-package se.restaurantbooking.entity;
+package backend.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
@@ -12,6 +15,17 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+
+    // ✅ Krävs av JPA
+    public Customer() {
+    }
+
+    // ✅ Används av CustomerFactory
+    public Customer(String firstName, String lastName, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Long getCustomerId() {
         return customerId;

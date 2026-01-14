@@ -32,8 +32,7 @@ public class DataLoader {
 
 
         //Adds a customer
-        Customer customer = new Customer("Test", "Testsson", "12345", "test@email.com");
-        em.persist(customer);
+        Customer c = new Customer("Anna", "Svensson", "0701234567");
 
         //Adds a dining table
         DiningTable diningTable = new DiningTable(1, 8, restaurant);
