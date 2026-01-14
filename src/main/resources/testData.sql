@@ -113,3 +113,4 @@ INSERT INTO DiningTable (table_number, capacity, restaurant_id) VALUES
 (3,6,7),
 (4,6,7),
 (5,8,7);
+
