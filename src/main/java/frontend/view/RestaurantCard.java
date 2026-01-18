@@ -1,11 +1,11 @@
 package frontend.view;
 
 import backend.entities.Restaurant;
+import frontend.controller.MainController;
 import frontend.model.ImageHandler;
 import frontend.model.RestaurantHandler;
 import frontend.model.SceneHandler;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
@@ -14,12 +14,12 @@ import java.util.Objects;
 
 public class RestaurantCard extends VBox {
 
-    public RestaurantCard(Restaurant restaurant, Pane pane){
+    public RestaurantCard(Restaurant restaurant, MainController controller){
         super(10);
         this.getStyleClass().add("restaurantBox");
         this.setOnMouseClicked(e -> {
             RestaurantHandler.setCurrentRestaurant(restaurant);
-            SceneHandler.switchScene(pane, "restaurant-view.fxml");
+            controller.showRestaurantPage();
         });
 
         ImageView view = new ImageView();

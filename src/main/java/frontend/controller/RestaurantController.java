@@ -6,32 +6,22 @@ import frontend.model.RestaurantHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class RestaurantController {
-    @FXML
-    private Pane restaurantPageRoot;
-    @FXML
-    private Label restaurantName;
-    @FXML
-    private Label restaurantAdress;
-    @FXML
-    private Label adressIcon;
-    @FXML
-    private Label categoryIcon;
-    @FXML
-    private Label restaurantCategory;
-    @FXML
-    private Label meanPriceIcon;
-    @FXML
-    private Label restaurantMeanPrice;
-    @FXML
-    private Label ratingIcon;
-    @FXML
-    private Label restaurantRating;
-    @FXML
-    private ImageView restaurantImage;
+    @FXML private Label restaurantName;
+    @FXML private Label restaurantAdress;
+    @FXML private Label restaurantCategory;
+    @FXML private Label restaurantMeanPrice;
+    @FXML private Label restaurantRating;
+    @FXML private ImageView restaurantImage;
 
+    @FXML private Label adressIcon;
+    @FXML private Label categoryIcon;
+    @FXML private Label meanPriceIcon;
+    @FXML private Label ratingIcon;
+
+    private MainController mainController;
     private Restaurant restaurant;
 
     @FXML
@@ -43,6 +33,10 @@ public class RestaurantController {
         }
 
         setRestaurantData(restaurant);
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
     private void setRestaurantData(Restaurant restaurant){
@@ -57,6 +51,12 @@ public class RestaurantController {
         restaurantRating.setText(String.valueOf(restaurant.getRating()));
         restaurantImage.setImage(ImageHandler.getRestaurantImage(restaurant));
         ImageHandler.scaleAndCropImage(restaurantImage, 350, 250);
+    }
+
+    @FXML
+    private void returnToMain(){
+        if(mainController != null)
+            mainController.showGallery();
     }
 
 }

@@ -4,13 +4,10 @@
     -fx-background-size: cover;
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
-    -fx-pref-height: 150px;
+    -fx-min-height: 150px;
     -fx-max-height: 150px;
 }
-#appLogo{
-    -fx-fit-height: 150px;
-    -fx-fit-width: 150px;
-}
+
 
 /* Category */
 .category-button {
@@ -21,6 +18,7 @@
     -fx-background-radius: 20px;
     -fx-cursor: hand;
 }
+
 
 /*Restaurant Card*/
 .restaurantBox{
@@ -42,6 +40,7 @@
     -fx-font-size: 16;
 }
 
+
 /*Restaurant Page*/
 .restaurantPage-Header{
     -fx-font-family: "Agency FB";
@@ -61,6 +60,15 @@
     -fx-text-fill: #333333;
     -fx-padding: 8 0 10 0;
 }
+.restaurantPage-ReturnButton{
+    -fx-background-color: #FF8C00;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
 
 /*Booking Form*/
 .bookingForm-Header{

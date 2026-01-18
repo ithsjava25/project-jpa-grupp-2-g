@@ -24,19 +24,19 @@ public class ImageHandler {
     public static void scaleAndCropImage(ImageView imageView, double targetWidth, double targetHeight){
         Image image = imageView.getImage();
 
-        double width = image.getWidth();
-        double height = image.getHeight();
+        double originalWidth = image.getWidth();
+        double originalHeight = image.getHeight();
 
         //Calculate ratio
-        double ratio = Math.min(width / targetWidth, height / targetHeight);
-        double viewWidth = targetWidth * ratio;
-        double viewHeight = targetHeight * ratio;
+        double ratio = Math.min(originalWidth / targetWidth, originalHeight / targetHeight);
+        double newWidth = targetWidth * ratio;
+        double newHeight = targetHeight * ratio;
 
         //Centers scale, so it does not start from top left corner
-        double x = (width - viewWidth) / 2;
-        double y = (height - viewHeight) / 2;
+        double x = (originalWidth - newWidth) / 2;
+        double y = (originalHeight - newHeight) / 2;
 
-        imageView.setViewport(new Rectangle2D(x, y, viewWidth, viewHeight));
+        imageView.setViewport(new Rectangle2D(x, y, newWidth, newHeight));
         imageView.setFitWidth(targetWidth);
         imageView.setFitHeight(targetHeight);
         imageView.setPreserveRatio(false);

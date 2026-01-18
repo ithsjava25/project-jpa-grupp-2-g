@@ -3,56 +3,42 @@ package frontend.controller;
 import backend.entities.Restaurant;
 import frontend.CategoryBox;
 import frontend.model.RestaurantHandler;
+import frontend.model.SceneHandler;
 import frontend.view.RestaurantCard;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.*;
 
 import java.util.List;
 
 
 public class MainController {
-    @FXML
-    private TextField searchRestaurantField;
-    @FXML
-    private FlowPane restaurantContainer;
-    @FXML
-    private VBox mainArea;
-    @FXML
-    private BorderPane categoryContainer;
+    @FXML private HeaderController headerController;
+
+    @FXML private FlowPane restaurantContainer;
+    @FXML private VBox mainArea;
+    @FXML private VBox categoryAndRestaurant;
+    @FXML private BorderPane categoryContainer;
 
     @FXML
     private void initialize() {
+        if(headerController != null)
+            headerController.setMainController(this);
+
         List<Restaurant> allRestaurants = RestaurantHandler.getResturantList("");
         CategoryBox.setupCategoryButtons(categoryContainer, this);
         displayRestaurants(allRestaurants);
     }
 
-
-    /**
-     * Handles restaurant search input.
-     *
-     * Searches for restaurants based on the user's input
-     * and updates the displayed list.
-     */
-    @FXML
-    public void handleRestaurantSearch(ActionEvent event){
-        String restaurant = searchRestaurantField.getText();
-        List<Restaurant> restaurantList = RestaurantHandler.getResturantList(restaurant);
-        displayRestaurants(restaurantList);
-    }
-
-
     /**
      * Displays a list of restaurants in the UI.
      * Clears the current view and adds a card for each restaurant.
      */
-    private void displayRestaurants(List<Restaurant> restaurants){
+    protected void displayRestaurants(List<Restaurant> restaurants){
         restaurantContainer.getChildren().clear();
         for(Restaurant r : restaurants){
-            RestaurantCard restaurantCard = new RestaurantCard(r, mainArea);
+            RestaurantCard restaurantCard = new RestaurantCard(r, this);
             restaurantContainer.getChildren().add(restaurantCard);
         }
     }
@@ -70,4 +56,27 @@ public class MainController {
     }
 
 
+    public void performSearch(String restaurant) {
+        List<Restaurant> restaurantList = RestaurantHandler.getResturantList(restaurant);
+
+        if(!mainArea.getChildren().contains(categoryAndRestaurant)){
+            showGallery();
+        }
+
+        displayRestaurants(restaurantList);
+    }
+
+    public void showGallery() {
+        mainArea.getChildren().clear();
+        mainArea.getChildren().addAll(categoryAndRestaurant);
+    }
+
+    public void showRestaurantPage(){
+        FXMLLoader loader = SceneHandler.switchScene(mainArea, "restaurant-view.fxml");
+
+        if(loader != null){
+            RestaurantController controller = loader.getController();
+            controller.setMainController(this);
+        }
+    }
 }
