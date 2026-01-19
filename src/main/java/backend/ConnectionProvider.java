@@ -12,13 +12,17 @@ import org.hibernate.jpa.HibernatePersistenceConfiguration;
  * It creates one centralized EntityManagerFactory that can be used in the whole program
  */
 public class ConnectionProvider {
-    private static final Dotenv env = Dotenv.configure().load();
+    private static final Dotenv env = Dotenv.configure()
+        .ignoreIfMissing()
+        .load();
     private static final PersistenceConfiguration cfg;
     private static final EntityManagerFactory EMF;
 
+    private static boolean testing = false;
+
     static{
         try{
-            if(env.get("TEST").equals("TRUE")){
+            if (testing){
 
                 cfg = new HibernatePersistenceConfiguration("persistence")
                     .jdbcUrl("jdbc:mysql://localhost:3307/testdb")
